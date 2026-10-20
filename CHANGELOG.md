@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased — 0.1.0
+## Unreleased — 0.1.1
 
 - Add automatic Maven Central publishing from matching version tags after reusable CI, with signed bundle validation
   and consumer compilation against Central using a fresh Maven cache.

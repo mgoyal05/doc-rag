@@ -356,7 +356,7 @@ started.
 
 ## Release preparation
 
-The root `doc-rag-parent` reactor owns version 0.1.0 and common build/publishing configuration. Java packages are
+The root `doc-rag-parent` reactor owns version 0.1.1 and common build/publishing configuration. Java packages are
 `docrag.*`; `io.github.mgoyal05` is the Maven namespace only. Core is framework-independent. Adapters are optional;
 the example is runnable but excluded from deployment. Existing schema, `research.*` properties, HTTP resource paths,
 browser keys, job formats and Compose volume identity intentionally retain compatibility names.
@@ -373,11 +373,11 @@ After the documented checks pass, validate/export sources with Python 3.10+:
 
 ```sh
 python scripts/source-release.py
-python scripts/source-release.py --output dist/doc-rag-0.1.0.zip
+python scripts/source-release.py --output dist/doc-rag-0.1.1.zip
 ```
 
 The exporter excludes build outputs, credentials and runtime data; rejects missing/empty release inputs and broken
-local links; verifies ZIP CRC and every content hash; and writes `doc-rag-0.1.0.zip.sha256`. It refuses to overwrite an
+local links; verifies ZIP CRC and every content hash; and writes `doc-rag-0.1.1.zip.sha256`. It refuses to overwrite an
 existing archive. An archive checksum verifies transport integrity, not model quality or release authorization.
 The archive prefix follows the parent POM version. ZIP timestamps use `SOURCE_DATE_EPOCH` when set, otherwise the
 release commit timestamp (or the ZIP epoch when Git metadata is unavailable).
@@ -440,13 +440,13 @@ published version. Run these commands from the intended release commit (PowerShe
 ```sh
 python scripts/source-release.py
 python -m unittest discover -s scripts -p 'test_release.py' -v
-python scripts/release.py --tag v0.1.0 --check-central
+python scripts/release.py --tag v0.1.1 --check-central
 ./mvnw clean verify
-git tag -a v0.1.0 -m "DocRAG 0.1.0"
-git push origin v0.1.0
+git tag -a v0.1.1 -m "DocRAG 0.1.1"
+git push origin v0.1.1
 ```
 
-Replace `0.1.0` with the new parent version for subsequent releases. Pushing the tag starts
+Replace `0.1.1` with the new parent version for subsequent releases. Pushing the tag starts
 `.github/workflows/release.yml`. Preflight requires a stable `vMAJOR.MINOR.PATCH` tag matching every module, a commit
 reachable from `origin/main`, and six coordinates that are absent from Central. Network errors fail preflight; they
 are not interpreted as missing coordinates. Then the same tagged commit passes reusable CI: native PostgreSQL/pgvector,

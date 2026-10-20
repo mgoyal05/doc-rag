@@ -105,7 +105,7 @@ An absent extension returns no row; an absent profile returns null. Use your con
 Clone `https://github.com/mgoyal05/doc-rag.git` and run `./mvnw clean verify` (PowerShell: `./mvnw.cmd clean verify`).
 One reactor builds the parent, core, four optional adapters and runnable example. `scripts/build` runs `install` when
 local consumers need these artifacts. For core alone: `./mvnw -pl core -am clean install`; core requires no Spring.
-Coordinates are `io.github.mgoyal05:doc-rag-<module>:0.1.0`; Java imports use `docrag.*`.
+Coordinates are `io.github.mgoyal05:doc-rag-<module>:0.1.1`; Java imports use `docrag.*`.
 `core/` contains the portable API/engine; `docling/`, `widget/`, `observability/` and `spring-boot/` contain adapters.
 `examples/spring-boot/` is the runnable host, and `postman/` contains local provider simulations.
 These are prepared release coordinates. Until Maven Central publication is confirmed, build/install from source;
@@ -121,17 +121,17 @@ Plain Java consumer dependencies:
     <dependency>
         <groupId>io.github.mgoyal05</groupId>
         <artifactId>doc-rag-core</artifactId>
-        <version>0.1.0</version>
+        <version>0.1.1</version>
     </dependency>
     <dependency>
         <groupId>io.github.mgoyal05</groupId>
         <artifactId>doc-rag-docling</artifactId>
-        <version>0.1.0</version>
+        <version>0.1.1</version>
     </dependency>
 </dependencies>
 ```
 
-Spring Boot 4 consumers use `io.github.mgoyal05:doc-rag-spring-boot:0.1.0`. This is an explicitly configured
+Spring Boot 4 consumers use `io.github.mgoyal05:doc-rag-spring-boot:0.1.1`. This is an explicitly configured
 adapter: register the client/properties and import `ResearchWebController` and `ResearchChatViewAdvice`. The complete
 [Spring example](examples/spring-boot/src/main/java/example/DocRagApplication.java) shows every required bean,
 authentication
