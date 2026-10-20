@@ -54,7 +54,7 @@ jobs:
           grep -q '"event":"listening"' "$RUNNER_TEMP/docrag-simulation.ndjson"
           sh scripts/build.sh -B --no-transfer-progress
           grep -q '"event":"request"' "$RUNNER_TEMP/docrag-simulation.ndjson"
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
       - name: Browser checks
