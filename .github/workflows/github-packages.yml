@@ -1,0 +1,54 @@
+name: Publish to GitHub Packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Already-published Maven Central tag (for example v0.1.1)'
+        required: true
+        type: string
+  workflow_call:
+    inputs:
+      tag:
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: github-packages-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+        with:
+          distribution: temurin
+          java-version: '21'
+          server-id: github
+          server-username-env-var: GITHUB_ACTOR
+          server-password-env-var: GITHUB_TOKEN
+      - name: Retrieve the public signing key
+        env:
+          FINGERPRINT: ${{ vars.MAVEN_GPG_KEY_FINGERPRINT }}
+          GNUPGHOME: ${{ runner.temp }}/docrag-github-gnupg
+        run: |
+          set -euo pipefail
+          [[ "$FINGERPRINT" =~ ^[[:xdigit:]]{40}$ ]]
+          install -d -m 700 "$GNUPGHOME"
+          gpg --batch --keyserver hkps://keyserver.ubuntu.com --recv-keys "$FINGERPRINT"
+      - name: Validate Central artifacts, mirror to GitHub and verify exact contents
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+          FINGERPRINT: ${{ vars.MAVEN_GPG_KEY_FINGERPRINT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GNUPGHOME: ${{ runner.temp }}/docrag-github-gnupg
+        run: python3 scripts/github_packages.py --tag "$RELEASE_TAG" --fingerprint "$FINGERPRINT" --publish

@@ -484,6 +484,24 @@ fails because of propagation, rerun `python scripts/release.py --verify-publishe
 This check also runs without publishing credentials. Released artifacts cannot be overwritten; publish fixes as a new
 version. Keep the README installation version aligned with the latest confirmed release.
 
+### GitHub Packages mirror
+
+After a Maven Central release succeeds, `release.yml` calls `github-packages.yml` with the same version tag.
+The mirror downloads the already-published POMs, JARs, sources, Javadoc and signatures from Central, validates all
+checksums, signatures and release contents, then uploads those exact files to
+`https://maven.pkg.github.com/mgoyal05/doc-rag`. The example application is excluded. No artifacts are rebuilt and
+Central is not republished. GitHub shows the six Maven packages in the repository's Packages section.
+
+The workflow uses its built-in `GITHUB_TOKEN` with `packages: write`, plus the existing public
+`MAVEN_GPG_KEY_FINGERPRINT` variable. It needs no additional secrets or private signing key. The script compares every
+uploaded artifact and signature with Central after publication. Reruns skip complete, identical versions; conflicting
+or partial versions fail for maintainer review rather than overwriting files.
+
+For an existing Central release or a GitHub-only retry, run **Publish to GitHub Packages** from the Actions page and
+enter its stable tag, such as `v0.1.1`. This manual workflow does not rerun the Central publisher. Consumers should
+continue using Central with no additional repository configuration; GitHub's Maven registry requires authentication
+even for downloading public packages. See [GitHub's Maven registry documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry).
+
 ### Verification status
 
 Release verification is rerun against the repaired reactor, not inferred from the previously tested copy.

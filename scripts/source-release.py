@@ -21,6 +21,7 @@ REQUIRED = ['LICENSE', 'NOTICE', '.env.example', '.gitattributes', 'mvnw', 'mvnw
             'spring-boot/src/main/java/docrag/spring/ResearchProperties.java',
             'scripts/build.ps1', 'scripts/run-example.ps1', 'docs/mermaid-config.json',
             'scripts/release.py', 'scripts/test_release.py', '.github/workflows/ci.yml', '.github/workflows/release.yml',
+            'scripts/github_packages.py', 'scripts/test_github_packages.py', '.github/workflows/github-packages.yml',
             'examples/spring-boot/src/main/resources/templates/index.html']
 
 

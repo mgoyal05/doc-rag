@@ -113,6 +113,8 @@ Use the dependency snippets below directly; Maven's default Central repository r
 additional repository configuration. Source builds remain available through the commands above.
 Maintainers publish from version tags after
 the [Maven Central setup and release checks](docs/OPERATIONS.md#maven-central-publishing).
+The [GitHub Packages mirror](https://github.com/mgoyal05/doc-rag/packages) is published after Central;
+Maven Central remains the default for consumers. See [mirror publishing](docs/OPERATIONS.md#github-packages-mirror).
 
 Plain Java consumer dependencies:
 

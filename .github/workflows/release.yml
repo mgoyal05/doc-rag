@@ -101,3 +101,12 @@ jobs:
         run: |
           gpgconf --kill all || true
           rm -rf -- "$GNUPGHOME"
+
+  github-packages:
+    needs: publish
+    permissions:
+      contents: read
+      packages: write
+    uses: ./.github/workflows/github-packages.yml
+    with:
+      tag: ${{ github.ref_name }}
