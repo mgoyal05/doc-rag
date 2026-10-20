@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>DocRAG Widget 0.1.0 API</title>
+<body><h1>DocRAG Widget</h1>
+<p>This resource-only JAR contains an ES module at <code>/document-research/chat-widget.js</code>.
+    No Java classes are provided. The sources artifact contains the original JavaScript assets.</p>
+<pre>import {mount} from '/document-research/chat-widget.js';
+const chat = mount({apiBase: '/api/research', title: 'Report research'});
+chat.open();
+chat.close();
+chat.setContext({documentIds: ['uploaded-id']});
+chat.destroy();</pre>
+<p><code>mount(options)</code> appends a <code>document-research-chat</code> Web Component to the document body.
+    <code>open()</code> and <code>close()</code> control the panel; <code>destroy()</code> disconnects listeners and
+    progress subscriptions.
+    <code>setContext(context)</code> supplies optional page context, not trusted caller identity.</p>
+<p>Serve the authenticated same-origin API through the Spring adapter or implement its HTTP contract.
+    The host owns authentication, authorization and CSRF configuration. Never include model/database credentials in
+    browser options.
+    Progress uses Server-Sent Events. Answers render as text with expandable citations. Uploaded reports are shared;
+    conversation history is owner-scoped. Browser storage retains only the conversation identifier.</p>
+<p>See the versioned <a
+        href="https://github.com/mgoyal05/doc-rag/blob/v0.1.0/docs/OPERATIONS.md#browser-widget-and-host-integration">HTTP
+    and mounting documentation</a>
+    and <a href="https://github.com/mgoyal05/doc-rag/blob/v0.1.0/README.md">installation examples</a>.</p>
+<p>Apache License 2.0. See META-INF/LICENSE and META-INF/NOTICE in the runtime JAR.</p></body>
+</html>

@@ -1,0 +1,69 @@
+name: research-monitoring
+services:
+  collector:
+    image: otel/opentelemetry-collector-contrib:0.163.1
+    command: [ "--config=/etc/otel/config.yaml" ]
+    ports: [ "127.0.0.1:14318:4318" ]
+    volumes:
+      - ./collector.yaml:/etc/otel/config.yaml:ro
+      - ./logs:/var/research-logs:ro
+    depends_on: [ tempo, loki ]
+    cpus: 0.5
+    mem_limit: 256m
+    pids_limit: 64
+    read_only: true
+    security_opt: [ "no-new-privileges:true" ]
+  prometheus:
+    image: prom/prometheus:v3.13.3
+    command: [ "--config.file=/etc/prometheus/prometheus.yaml", "--storage.tsdb.retention.time=24h", "--storage.tsdb.retention.size=256MB" ]
+    ports: [ "127.0.0.1:19090:9090" ]
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yaml:ro
+      - ./alerts.yaml:/etc/prometheus/alerts.yaml:ro
+      - prometheus:/prometheus
+    cpus: 0.5
+    mem_limit: 512m
+    pids_limit: 64
+    read_only: true
+    security_opt: [ "no-new-privileges:true" ]
+  tempo:
+    image: grafana/tempo:2.10.8
+    command: [ "-config.file=/etc/tempo.yaml" ]
+    volumes: [ "./tempo.yaml:/etc/tempo.yaml:ro" ]
+    tmpfs: [ "/tmp:size=536870912,mode=1777" ]
+    cpus: 0.5
+    mem_limit: 512m
+    pids_limit: 128
+    read_only: true
+    security_opt: [ "no-new-privileges:true" ]
+  loki:
+    image: grafana/loki:3.7.8
+    command: [ "-config.file=/etc/loki.yaml" ]
+    volumes: [ "./loki.yaml:/etc/loki.yaml:ro" ]
+    tmpfs: [ "/tmp:size=536870912,mode=1777" ]
+    cpus: 0.5
+    mem_limit: 512m
+    pids_limit: 128
+    read_only: true
+    security_opt: [ "no-new-privileges:true" ]
+  grafana:
+    image: grafana/grafana:13.2.4
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:?Set a development Grafana password}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
+    ports: [ "127.0.0.1:13000:3000" ]
+    volumes:
+      - ./grafana:/etc/grafana/provisioning:ro
+      - ./dashboards:/var/lib/grafana/dashboards:ro
+      - grafana:/var/lib/grafana
+    tmpfs: [ "/tmp:size=67108864,mode=1777" ]
+    cpus: 0.5
+    mem_limit: 256m
+    pids_limit: 128
+    read_only: true
+    security_opt: [ "no-new-privileges:true" ]
+volumes:
+  prometheus:
+  grafana:

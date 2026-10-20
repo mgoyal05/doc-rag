@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <title>DocRAG</title></head>
+<body>
+<main><h1>DocRAG</h1>
+    <p>Open the chat in the bottom-right corner, upload a report and ask a question.</p>
+    <p>Uploaded reports are shared with authenticated users. Conversations remain private.</p></main>
+<div th:replace="~{fragments/research-chat :: chat}"></div>
+</body>
+</html>

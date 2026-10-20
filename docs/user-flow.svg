@@ -1,0 +1,1563 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" id="my-svg" width="1565.8841552734375"
+     xmlns="http://www.w3.org/2000/svg" class="flowchart" height="3524.320068359375"
+     viewBox="-4 -4 1565.8841552734375 3524.320068359375" role="graphics-document document"
+     aria-roledescription="flowchart-v2" style="background-color: white;">
+    <style>#my-svg{font-family:Arial,sans-serif;font-size:16px;fill:#000000;}@keyframes
+        edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#my-svg
+        .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear
+        infinite;stroke-linecap:round;}#my-svg
+        .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear
+        infinite;stroke-linecap:round;}#my-svg .error-icon{fill:#552222;}#my-svg
+        .error-text{fill:#552222;stroke:#552222;}#my-svg .edge-thickness-normal{stroke-width:1px;}#my-svg
+        .edge-thickness-thick{stroke-width:3.5px;}#my-svg .edge-pattern-solid{stroke-dasharray:0;}#my-svg
+        .edge-thickness-invisible{stroke-width:0;fill:none;}#my-svg .edge-pattern-dashed{stroke-dasharray:3;}#my-svg
+        .edge-pattern-dotted{stroke-dasharray:2;}#my-svg .marker{fill:#666;stroke:#666;}#my-svg
+        .marker.cross{stroke:#666;}#my-svg svg{font-family:Arial,sans-serif;font-size:16px;}#my-svg p{margin:0;}#my-svg
+        .label{font-family:Arial,sans-serif;color:#000000;}#my-svg .cluster-label text{fill:#333;}#my-svg .cluster-label
+        span{color:#333;}#my-svg .cluster-label span p{background-color:transparent;}#my-svg .label text,#my-svg
+        span{fill:#000000;color:#000000;}#my-svg .node rect,#my-svg .node circle,#my-svg .node ellipse,#my-svg .node
+        polygon,#my-svg .node path{fill:#eee;stroke:#999;stroke-width:1px;}#my-svg .rough-node .label text,#my-svg .node
+        .label text,#my-svg .image-shape .label,#my-svg .icon-shape .label{text-anchor:middle;}#my-svg .node .katex
+        path{fill:#000;stroke:#000;stroke-width:1px;}#my-svg .rough-node .label,#my-svg .node .label,#my-svg
+        .image-shape .label,#my-svg .icon-shape .label{text-align:center;}#my-svg
+        .node.clickable{cursor:pointer;}#my-svg .root .anchor
+        path{fill:#666!important;stroke-width:0;stroke:#666;}#my-svg .arrowheadPath{fill:#333333;}#my-svg .edgePaths
+        .path{stroke:#666;stroke-width:1px;}#my-svg .flowchart-link{stroke:#666;fill:none;}#my-svg
+        .edgeLabel{background-color:white;text-align:center;}#my-svg .edgeLabel p{background-color:white;}#my-svg
+        .edgeLabel rect{opacity:0.5;background-color:white;fill:white;}#my-svg .labelBkg{background-color:rgba(255, 255,
+        255, 0.5);}#my-svg .cluster rect{fill:hsl(0, 0%, 98.9215686275%);stroke:#707070;stroke-width:1px;}#my-svg
+        .cluster text{fill:#333;}#my-svg .cluster span{color:#333;}#my-svg .node
+        .collapsed-indicator{fill:#707070;stroke:none;opacity:0.6;}#my-svg .node
+        .collapsed-separator{stroke:#707070;stroke-width:0.75px;}#my-svg
+        div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Arial,sans-serif;font-size:12px;background:hsl(-160,
+        0%, 93.3333333333%);border:1px solid #707070;border-radius:2px;pointer-events:none;z-index:100;}#my-svg
+        .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#000000;}#my-svg
+        rect.text{fill:none;stroke-width:0;}#my-svg .icon-shape,#my-svg
+        .image-shape{background-color:white;text-align:center;}#my-svg .icon-shape p,#my-svg .image-shape
+        p{background-color:white;padding:2px;}#my-svg .icon-shape .label rect,#my-svg .image-shape .label
+        rect{opacity:0.5;background-color:white;fill:white;}#my-svg
+        .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#my-svg .node .label-icon
+        path{fill:currentColor;stroke:revert;stroke-width:revert;}#my-svg .node .neo-node{stroke:#999;}#my-svg
+        [data-look="neo"].node rect,#my-svg [data-look="neo"].cluster rect,#my-svg [data-look="neo"].node
+        polygon{stroke:url(#my-svg-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#my-svg
+        [data-look="neo"].swimlane.cluster rect{filter:none;}#my-svg [data-look="neo"].node
+        path{stroke:url(#my-svg-gradient);stroke-width:1px;}#my-svg [data-look="neo"].node
+        .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#my-svg [data-look="neo"].node .neo-line
+        path{stroke:#999;filter:none;}#my-svg [data-look="neo"].node
+        circle{stroke:url(#my-svg-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#my-svg
+        [data-look="neo"].node circle .state-start{fill:#000000;}#my-svg [data-look="neo"].icon-shape
+        .icon{fill:url(#my-svg-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#my-svg
+        [data-look="neo"].icon-shape .icon-neo path{stroke:url(#my-svg-gradient);filter:drop-shadow( 1px 2px 2px
+        rgba(185,185,185,1));}#my-svg :root{--mermaid-font-family:Arial,sans-serif;}
+    </style>
+    <g>
+        <marker id="my-svg_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5"
+                markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <marker id="my-svg_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5"
+                markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <marker id="my-svg_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5"
+                refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto">
+            <path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <marker id="my-svg_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1"
+                refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto">
+            <polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath"
+                     style="stroke-width: 0; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <marker id="my-svg_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5"
+                markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto">
+            <circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <marker id="my-svg_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5"
+                markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto">
+            <circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <marker id="my-svg_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5"
+                refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto">
+            <circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <marker id="my-svg_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2"
+                refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto">
+            <circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <marker id="my-svg_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12"
+                refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto">
+            <path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath"
+                  style="stroke-width: 2; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <marker id="my-svg_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1"
+                refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto">
+            <path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath"
+                  style="stroke-width: 2; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <marker id="my-svg_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15"
+                refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto">
+            <path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"/>
+        </marker>
+        <marker id="my-svg_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15"
+                refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto">
+            <path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath"
+                  style="stroke-width: 2.5; stroke-dasharray: 1, 0;"/>
+        </marker>
+        <g class="root">
+            <g class="clusters"/>
+            <g class="edges edgePaths">
+                <path d="M752.7415364583334,88.19999694824219L752.7415364583334,124.19999694824219"
+                      id="my-svg-L_Upload_Extract_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 32 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge"
+                      data-id="L_Upload_Extract_0"
+                      data-points="W3sieCI6NzUyLjc0MTUzNjQ1ODMzMzQsInkiOjg4LjE5OTk5Njk0ODI0MjE5fSx7IngiOjc1Mi43NDE1MzY0NTgzMzM0LCJ5IjoxMjguMTk5OTk2OTQ4MjQyMn1d"
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M752.7415364583334,204.39999389648438L752.7415364583334,240.39999389648438"
+                      id="my-svg-L_Extract_ExtractOK_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 32 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge"
+                      data-id="L_Extract_ExtractOK_0"
+                      data-points="W3sieCI6NzUyLjc0MTUzNjQ1ODMzMzQsInkiOjIwNC4zOTk5OTM4OTY0ODQzOH0seyJ4Ijo3NTIuNzQxNTM2NDU4MzMzNCwieSI6MjQ0LjM5OTk5Mzg5NjQ4NDM4fV0="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M706.2740885416667,496.7371523194015L706.2740885416667,543.2046813964844L706.2740885416667,556.1336135846188Q706.2740885416667,563.2046813964844 699.2030207298012,563.2046813964844L204.11794281186548,563.2046813964844Q197.046875,563.2046813964844 197.046875,570.2757492083499L197.046875,640.2046813964844"
+                      id="my-svg-L_ExtractOK_Draft_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 643.366455078125 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_ExtractOK_Draft_0"
+                      data-points="W3sieCI6NzA2LjI3NDA4ODU0MTY2NjcsInkiOjQ5Ni43MzcxNTIzMTk0MDE1fSx7IngiOjcwNi4yNzQwODg1NDE2NjY3LCJ5Ijo1NDMuMjA0NjgxMzk2NDg0NH0seyJ4Ijo3MDYuMjc0MDg4NTQxNjY2NywieSI6NTYzLjIwNDY4MTM5NjQ4NDR9LHsieCI6MTk3LjA0Njg3NSwieSI6NTYzLjIwNDY4MTM5NjQ4NDR9LHsieCI6MTk3LjA0Njg3NSwieSI6NjQ0LjIwNDY4MTM5NjQ4NDR9XQ=="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M799.208984375,496.7371523194015L799.208984375,543.2046813964844L799.208984375,556.1336135846188Q799.208984375,563.2046813964844 806.2800521868655,563.2046813964844L952.2622655214677,563.2046813964844Q959.3333333333333,563.2046813964844 959.3333333333333,570.2757492083499L959.3333333333334,640.2046813964844"
+                      id="my-svg-L_ExtractOK_Index_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 294.26361083984375 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_ExtractOK_Index_0"
+                      data-points="W3sieCI6Nzk5LjIwODk4NDM3NSwieSI6NDk2LjczNzE1MjMxOTQwMTV9LHsieCI6Nzk5LjIwODk4NDM3NSwieSI6NTQzLjIwNDY4MTM5NjQ4NDR9LHsieCI6Nzk5LjIwODk4NDM3NSwieSI6NTYzLjIwNDY4MTM5NjQ4NDR9LHsieCI6OTU5LjMzMzMzMzMzMzMzMzMsInkiOjU2My4yMDQ2ODEzOTY0ODQ0fSx7IngiOjk1OS4zMzMzMzMzMzMzMzM0LCJ5Ijo2NDQuMjA0NjgxMzk2NDg0NH1d"
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M959.3333333333334,720.4046783447266L959.3333333333334,756.4046783447266"
+                      id="my-svg-L_Index_Ask_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 32 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge"
+                      data-id="L_Index_Ask_0"
+                      data-points="W3sieCI6OTU5LjMzMzMzMzMzMzMzMzQsInkiOjcyMC40MDQ2NzgzNDQ3MjY2fSx7IngiOjk1OS4zMzMzMzMzMzMzMzM0LCJ5Ijo3NjAuNDA0Njc4MzQ0NzI2Nn1d"
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M959.3333333333334,836.6046752929688L959.3333333333333,872.6046752929688"
+                      id="my-svg-L_Ask_Queue_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 32 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge"
+                      data-id="L_Ask_Queue_0"
+                      data-points="W3sieCI6OTU5LjMzMzMzMzMzMzMzMzQsInkiOjgzNi42MDQ2NzUyOTI5Njg4fSx7IngiOjk1OS4zMzMzMzMzMzMzMzMzLCJ5Ijo4NzYuNjA0Njc1MjkyOTY4OH1d"
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M959.3333333333333,970.4046783447266L959.3333333333333,1006.4046783447266"
+                      id="my-svg-L_Queue_Plan_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 32 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge"
+                      data-id="L_Queue_Plan_0"
+                      data-points="W3sieCI6OTU5LjMzMzMzMzMzMzMzMzMsInkiOjk3MC40MDQ2NzgzNDQ3MjY2fSx7IngiOjk1OS4zMzMzMzMzMzMzMzMzLCJ5IjoxMDEwLjQwNDY3ODM0NDcyNjZ9XQ=="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M959.3333333333333,1121.8046798706055L959.3333333333333,1157.8046798706055"
+                      id="my-svg-L_Plan_Scope_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 32 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge"
+                      data-id="L_Plan_Scope_0"
+                      data-points="W3sieCI6OTU5LjMzMzMzMzMzMzMzMzMsInkiOjExMjEuODA0Njc5ODcwNjA1NX0seyJ4Ijo5NTkuMzMzMzMzMzMzMzMzMywieSI6MTE2MS44MDQ2Nzk4NzA2MDU1fV0="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M903.2226562499999,1462.3580038622022L903.2226562499999,1518.4687423706055L903.2226562499999,1531.39767455874Q903.2226562499999,1538.4687423706055 896.1515884381345,1538.4687423706055L482.30674489519885,1538.4687423706055Q475.23567708333337,1538.4687423706055 475.23567708333337,1545.539810182471L475.23567708333337,1624.268741607666"
+                      id="my-svg-L_Scope_Missing_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 580.5695190429688 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_Scope_Missing_0"
+                      data-points="W3sieCI6OTAzLjIyMjY1NjI0OTk5OTksInkiOjE0NjIuMzU4MDAzODYyMjAyMn0seyJ4Ijo5MDMuMjIyNjU2MjQ5OTk5OSwieSI6MTUxOC40Njg3NDIzNzA2MDU1fSx7IngiOjkwMy4yMjI2NTYyNDk5OTk5LCJ5IjoxNTM4LjQ2ODc0MjM3MDYwNTV9LHsieCI6NDc1LjIzNTY3NzA4MzMzMzM3LCJ5IjoxNTM4LjQ2ODc0MjM3MDYwNTV9LHsieCI6NDc1LjIzNTY3NzA4MzMzMzM3LCJ5IjoxNjI4LjI2ODc0MTYwNzY2Nn1d"
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M1015.4440104166666,1462.3580038622022L1015.4440104166666,1518.4687423706055L1015.4440104166666,1531.39767455874Q1015.4440104166666,1538.4687423706055 1022.515078228532,1538.4687423706055L1315.445859271468,1538.4687423706055Q1322.5169270833335,1538.4687423706055 1322.5169270833335,1545.539810182471L1322.5169270833335,1615.4687423706055"
+                      id="my-svg-L_Scope_Embed_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 450.85540771484375 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_Scope_Embed_0"
+                      data-points="W3sieCI6MTAxNS40NDQwMTA0MTY2NjY2LCJ5IjoxNDYyLjM1ODAwMzg2MjIwMjJ9LHsieCI6MTAxNS40NDQwMTA0MTY2NjY2LCJ5IjoxNTE4LjQ2ODc0MjM3MDYwNTV9LHsieCI6MTAxNS40NDQwMTA0MTY2NjY2LCJ5IjoxNTM4LjQ2ODc0MjM3MDYwNTV9LHsieCI6MTMyMi41MTY5MjcwODMzMzM1LCJ5IjoxNTM4LjQ2ODc0MjM3MDYwNTV9LHsieCI6MTMyMi41MTY5MjcwODMzMzM1LCJ5IjoxNjE5LjQ2ODc0MjM3MDYwNTV9XQ=="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M1322.5169270833335,1695.6687393188477L1322.5169270833335,1731.6687393188477"
+                      id="my-svg-L_Embed_Retrieve_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 32 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge"
+                      data-id="L_Embed_Retrieve_0"
+                      data-points="W3sieCI6MTMyMi41MTY5MjcwODMzMzM1LCJ5IjoxNjk1LjY2ODczOTMxODg0Nzd9LHsieCI6MTMyMi41MTY5MjcwODMzMzM1LCJ5IjoxNzM1LjY2ODczOTMxODg0Nzd9XQ=="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M1322.5169270833335,1829.4687423706055L1322.5169270833335,1865.4687423706055"
+                      id="my-svg-L_Retrieve_Context_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 32 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge"
+                      data-id="L_Retrieve_Context_0"
+                      data-points="W3sieCI6MTMyMi41MTY5MjcwODMzMzM1LCJ5IjoxODI5LjQ2ODc0MjM3MDYwNTV9LHsieCI6MTMyMi41MTY5MjcwODMzMzM1LCJ5IjoxODY5LjQ2ODc0MjM3MDYwNTV9XQ=="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M1322.5169270833335,1928.0687408447266L1322.5169270833335,1964.0687408447266"
+                      id="my-svg-L_Context_Generate_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 32 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge"
+                      data-id="L_Context_Generate_0"
+                      data-points="W3sieCI6MTMyMi41MTY5MjcwODMzMzM1LCJ5IjoxOTI4LjA2ODc0MDg0NDcyNjZ9LHsieCI6MTMyMi41MTY5MjcwODMzMzM1LCJ5IjoxOTY4LjA2ODc0MDg0NDcyNjZ9XQ=="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M1252.7805989583335,2026.6687393188477L1252.7805989583335,2039.5976715069821Q1252.7805989583335,2046.6687393188477 1245.709531146468,2046.6687393188477L993.2969792701988,2046.6687393188477Q986.2259114583334,2046.6687393188477 986.2259114583334,2053.739807130713L986.2259114583334,2062.6687393188477"
+                      id="my-svg-L_Generate_WantsTools_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 293.2265930175781 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_Generate_WantsTools_0"
+                      data-points="W3sieCI6MTI1Mi43ODA1OTg5NTgzMzM1LCJ5IjoyMDI2LjY2ODczOTMxODg0Nzd9LHsieCI6MTI1Mi43ODA1OTg5NTgzMzM1LCJ5IjoyMDQ2LjY2ODczOTMxODg0Nzd9LHsieCI6OTg2LjIyNTkxMTQ1ODMzMzQsInkiOjIwNDYuNjY4NzM5MzE4ODQ3N30seyJ4Ijo5ODYuMjI1OTExNDU4MzMzNCwieSI6MjA2Ni42Njg3MzkzMTg4NDc3fV0="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M1018.3144531250001,2247.1114140450954L1018.3144531250001,2279.1999893188477L1018.3144531250001,2292.1289215069824Q1018.3144531250001,2299.1999893188477 1025.3855209368655,2299.1999893188477L1160.005755104801,2299.1999893188477Q1167.0768229166665,2299.1999893188477 1167.0768229166665,2306.271057130713L1167.0768229166665,2353.1289215069824Q1167.0768229166665,2360.1999893188477 1174.147890728532,2360.1999893188477L1200.172421771468,2360.1999893188477Q1207.2434895833335,2360.1999893188477 1207.2434895833335,2367.271057130713L1207.2434895833335,2376.1999893188477"
+                      id="my-svg-L_WantsTools_Calculate_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 303.3616943359375 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_WantsTools_Calculate_0"
+                      data-points="W3sieCI6MTAxOC4zMTQ0NTMxMjUwMDAxLCJ5IjoyMjQ3LjExMTQxNDA0NTA5NTR9LHsieCI6MTAxOC4zMTQ0NTMxMjUwMDAxLCJ5IjoyMjc5LjE5OTk4OTMxODg0Nzd9LHsieCI6MTAxOC4zMTQ0NTMxMjUwMDAxLCJ5IjoyMjk5LjE5OTk4OTMxODg0Nzd9LHsieCI6MTE2Ny4wNzY4MjI5MTY2NjY1LCJ5IjoyMjk5LjE5OTk4OTMxODg0Nzd9LHsieCI6MTE2Ny4wNzY4MjI5MTY2NjY1LCJ5IjoyMzYwLjE5OTk4OTMxODg0Nzd9LHsieCI6MTIwNy4yNDM0ODk1ODMzMzM1LCJ5IjoyMzYwLjE5OTk4OTMxODg0Nzd9LHsieCI6MTIwNy4yNDM0ODk1ODMzMzM1LCJ5IjoyMzgwLjE5OTk4OTMxODg0Nzd9XQ=="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M1320.0872395833335,2380.1999893188477L1320.0872395833335,2361.4148330688477Q1320.0872395833335,2360.1999893188477 1321.3020833333335,2360.1999893188477L1321.3020833333335,2360.1999893188477Q1322.5169270833335,2360.1999893188477 1322.5169270833335,2358.9851455688477L1322.5169270833335,2329.6999893188477L1322.5169270833335,2030.6687393188477"
+                      id="my-svg-L_Calculate_Generate_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 347.04595947265625 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_Calculate_Generate_0"
+                      data-points="W3sieCI6MTMyMC4wODcyMzk1ODMzMzM1LCJ5IjoyMzgwLjE5OTk4OTMxODg0Nzd9LHsieCI6MTMyMC4wODcyMzk1ODMzMzM1LCJ5IjoyMzYwLjE5OTk4OTMxODg0Nzd9LHsieCI6MTMyMi41MTY5MjcwODMzMzM1LCJ5IjoyMzYwLjE5OTk4OTMxODg0Nzd9LHsieCI6MTMyMi41MTY5MjcwODMzMzM1LCJ5IjoyMzI5LjY5OTk4OTMxODg0Nzd9LHsieCI6MTMyMi41MTY5MjcwODMzMzM1LCJ5IjoyMDI2LjY2ODczOTMxODg0Nzd9XQ=="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M954.1373697916667,2247.1114140450954L954.1373697916667,2279.1999893188477L954.1373697916667,2292.1289215069824Q954.1373697916667,2299.1999893188477 947.0663019798012,2299.1999893188477L886.0411198951988,2299.1999893188477Q878.9700520833334,2299.1999893188477 878.9700520833334,2306.271057130713L878.9700520833334,2393.799991607666"
+                      id="my-svg-L_WantsTools_DraftAnswer_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 212.52801513671875 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_WantsTools_DraftAnswer_0"
+                      data-points="W3sieCI6OTU0LjEzNzM2OTc5MTY2NjcsInkiOjIyNDcuMTExNDE0MDQ1MDk1NH0seyJ4Ijo5NTQuMTM3MzY5NzkxNjY2NywieSI6MjI3OS4xOTk5ODkzMTg4NDc3fSx7IngiOjk1NC4xMzczNjk3OTE2NjY3LCJ5IjoyMjk5LjE5OTk4OTMxODg0Nzd9LHsieCI6ODc4Ljk3MDA1MjA4MzMzMzQsInkiOjIyOTkuMTk5OTg5MzE4ODQ3N30seyJ4Ijo4NzguOTcwMDUyMDgzMzMzNCwieSI6MjM5Ny43OTk5OTE2MDc2NjZ9XQ=="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M878.9700520833334,2456.399990081787L878.9700520833334,2509.9999923706055"
+                      id="my-svg-L_DraftAnswer_Validate_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 49.60009765625 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_DraftAnswer_Validate_0"
+                      data-points="W3sieCI6ODc4Ljk3MDA1MjA4MzMzMzQsInkiOjI0NTYuMzk5OTkwMDgxNzg3fSx7IngiOjg3OC45NzAwNTIwODMzMzM0LCJ5IjoyNTEzLjk5OTk5MjM3MDYwNTV9XQ=="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M828.7747395833334,2590.1999893188477L828.7747395833334,2603.1289215069824Q828.7747395833334,2610.1999893188477 821.703671771468,2610.1999893188477L765.237734478532,2610.1999893188477Q758.1666666666666,2610.1999893188477 758.1666666666666,2617.271057130713L758.1666666666666,2626.1999893188477"
+                      id="my-svg-L_Validate_Verify_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 97.2801513671875 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_Validate_Verify_0"
+                      data-points="W3sieCI6ODI4Ljc3NDczOTU4MzMzMzQsInkiOjI1OTAuMTk5OTg5MzE4ODQ3N30seyJ4Ijo4MjguNzc0NzM5NTgzMzMzNCwieSI6MjYxMC4xOTk5ODkzMTg4NDc3fSx7IngiOjc1OC4xNjY2NjY2NjY2NjY2LCJ5IjoyNjEwLjE5OTk4OTMxODg0Nzd9LHsieCI6NzU4LjE2NjY2NjY2NjY2NjYsInkiOjI2MzAuMTk5OTg5MzE4ODQ3N31d"
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M702.5130208333333,2688.7999877929688L702.5130208333333,2701.7289199811034Q702.5130208333333,2708.7999877929688 695.4419530214677,2708.7999877929688L641.907656353532,2708.7999877929688Q634.8365885416666,2708.7999877929688 634.8365885416666,2715.871055604834L634.8365885416666,2724.7999877929688"
+                      id="my-svg-L_Verify_Accepted_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 94.34822082519531 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_Verify_Accepted_0"
+                      data-points="W3sieCI6NzAyLjUxMzAyMDgzMzMzMzMsInkiOjI2ODguNzk5OTg3NzkyOTY4OH0seyJ4Ijo3MDIuNTEzMDIwODMzMzMzMywieSI6MjcwOC43OTk5ODc3OTI5Njg4fSx7IngiOjYzNC44MzY1ODg1NDE2NjY2LCJ5IjoyNzA4Ljc5OTk4Nzc5Mjk2ODh9LHsieCI6NjM0LjgzNjU4ODU0MTY2NjYsInkiOjI3MjguNzk5OTg3NzkyOTY4OH1d"
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M596.9498697916666,2938.23350385949L596.9498697916666,2976.1203002929688L596.9498697916666,2989.0492324811034Q596.9498697916666,2996.1203002929688 604.020937603532,2996.1203002929688L611.0155207298012,2996.1203002929688Q618.0865885416666,2996.1203002929688 618.0865885416666,3003.191368104834L618.0865885416666,3026.6203002929688L618.0865885416666,3215.0202980041504L618.0865885416666,3247.2492294293456Q618.0865885416666,3254.320297241211 611.0155207298012,3254.320297241211L552.0342839576988,3254.320297241211Q544.9632161458334,3254.320297241211 544.9632161458334,3261.3913650530762L544.9632161458334,3290.320297241211"
+                      id="my-svg-L_Accepted_Finish_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 431.69091796875 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_Accepted_Finish_0"
+                      data-points="W3sieCI6NTk2Ljk0OTg2OTc5MTY2NjYsInkiOjI5MzguMjMzNTAzODU5NDl9LHsieCI6NTk2Ljk0OTg2OTc5MTY2NjYsInkiOjI5NzYuMTIwMzAwMjkyOTY4OH0seyJ4Ijo1OTYuOTQ5ODY5NzkxNjY2NiwieSI6Mjk5Ni4xMjAzMDAyOTI5Njg4fSx7IngiOjYxOC4wODY1ODg1NDE2NjY2LCJ5IjoyOTk2LjEyMDMwMDI5Mjk2ODh9LHsieCI6NjE4LjA4NjU4ODU0MTY2NjYsInkiOjMwMjYuNjIwMzAwMjkyOTY4OH0seyJ4Ijo2MTguMDg2NTg4NTQxNjY2NiwieSI6MzIxNS4wMjAyOTgwMDQxNTA0fSx7IngiOjYxOC4wODY1ODg1NDE2NjY2LCJ5IjozMjU0LjMyMDI5NzI0MTIxMX0seyJ4Ijo1NDQuOTYzMjE2MTQ1ODMzNCwieSI6MzI1NC4zMjAyOTcyNDEyMTF9LHsieCI6NTQ0Ljk2MzIxNjE0NTgzMzQsInkiOjMyOTQuMzIwMjk3MjQxMjExfV0="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M508.00227864583337,3388.1203002929688L508.00227864583337,3424.1203002929688"
+                      id="my-svg-L_Finish_Display_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 32 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge"
+                      data-id="L_Finish_Display_0"
+                      data-points="W3sieCI6NTA4LjAwMjI3ODY0NTgzMzM3LCJ5IjozMzg4LjEyMDMwMDI5Mjk2ODh9LHsieCI6NTA4LjAwMjI3ODY0NTgzMzM3LCJ5IjozNDI4LjEyMDMwMDI5Mjk2ODh9XQ=="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M672.7233072916666,2938.23350385949L672.7233072916666,2976.1203002929688L672.7233072916666,2994.1673380533853Q672.7233072916666,2996.1203002929688 674.67626953125,2996.1203002929688L674.67626953125,2996.1203002929688Q676.6292317708334,2996.1203002929688 676.6292317708334,2998.0732625325522L676.6292317708334,3070.0492324811034Q676.6292317708334,3077.1203002929688 683.7002995826988,3077.1203002929688L906.8973566673012,3077.1203002929688Q913.9684244791666,3077.1203002929688 913.9684244791666,3084.191368104834L913.9684244791666,3093.1203002929688"
+                      id="my-svg-L_Accepted_Failure_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 385.3329772949219 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_Accepted_Failure_0"
+                      data-points="W3sieCI6NjcyLjcyMzMwNzI5MTY2NjYsInkiOjI5MzguMjMzNTAzODU5NDl9LHsieCI6NjcyLjcyMzMwNzI5MTY2NjYsInkiOjI5NzYuMTIwMzAwMjkyOTY4OH0seyJ4Ijo2NzIuNzIzMzA3MjkxNjY2NiwieSI6Mjk5Ni4xMjAzMDAyOTI5Njg4fSx7IngiOjY3Ni42MjkyMzE3NzA4MzM0LCJ5IjoyOTk2LjEyMDMwMDI5Mjk2ODh9LHsieCI6Njc2LjYyOTIzMTc3MDgzMzQsInkiOjMwNzcuMTIwMzAwMjkyOTY4OH0seyJ4Ijo5MTMuOTY4NDI0NDc5MTY2NiwieSI6MzA3Ny4xMjAzMDAyOTI5Njg4fSx7IngiOjkxMy45Njg0MjQ0NzkxNjY2LCJ5IjozMDk3LjEyMDMwMDI5Mjk2ODh9XQ=="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M1392.2532552083335,2026.6687393188477L1392.2532552083335,2039.5976715069821Q1392.2532552083335,2046.6687393188477 1399.324323020199,2046.6687393188477L1455.859921771468,2046.6687393188477Q1462.9309895833335,2046.6687393188477 1462.9309895833335,2053.739807130713L1462.9309895833335,2172.9343643188477L1462.9309895833335,2329.6999893188477L1462.9309895833335,2427.0999908447266L1462.9309895833335,2659.499988555908L1462.9309895833335,2852.4601440429688L1462.9309895833335,3026.6203002929688L1462.9309895833335,3050.0492324811034Q1462.9309895833335,3057.1203002929688 1455.859921771468,3057.1203002929688L1118.0176172910321,3057.1203002929688Q1110.9465494791666,3057.1203002929688 1110.9465494791666,3064.191368104834L1110.9465494791666,3093.1203002929688"
+                      id="my-svg-L_Generate_Failure_0"
+                      class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 4; stroke-dashoffset: 0;;"
+                      data-edge="true" data-et="edge" data-id="L_Generate_Failure_0"
+                      data-points="W3sieCI6MTM5Mi4yNTMyNTUyMDgzMzM1LCJ5IjoyMDI2LjY2ODczOTMxODg0Nzd9LHsieCI6MTM5Mi4yNTMyNTUyMDgzMzM1LCJ5IjoyMDQ2LjY2ODczOTMxODg0Nzd9LHsieCI6MTQ2Mi45MzA5ODk1ODMzMzM1LCJ5IjoyMDQ2LjY2ODczOTMxODg0Nzd9LHsieCI6MTQ2Mi45MzA5ODk1ODMzMzM1LCJ5IjoyMTcyLjkzNDM2NDMxODg0Nzd9LHsieCI6MTQ2Mi45MzA5ODk1ODMzMzM1LCJ5IjoyMzI5LjY5OTk4OTMxODg0Nzd9LHsieCI6MTQ2Mi45MzA5ODk1ODMzMzM1LCJ5IjoyNDI3LjA5OTk5MDg0NDcyNjZ9LHsieCI6MTQ2Mi45MzA5ODk1ODMzMzM1LCJ5IjoyNjU5LjQ5OTk4ODU1NTkwOH0seyJ4IjoxNDYyLjkzMDk4OTU4MzMzMzUsInkiOjI4NTIuNDYwMTQ0MDQyOTY4OH0seyJ4IjoxNDYyLjkzMDk4OTU4MzMzMzUsInkiOjMwMjYuNjIwMzAwMjkyOTY4OH0seyJ4IjoxNDYyLjkzMDk4OTU4MzMzMzUsInkiOjMwNTcuMTIwMzAwMjkyOTY4OH0seyJ4IjoxMTEwLjk0NjU0OTQ3OTE2NjYsInkiOjMwNTcuMTIwMzAwMjkyOTY4OH0seyJ4IjoxMTEwLjk0NjU0OTQ3OTE2NjYsInkiOjMwOTcuMTIwMzAwMjkyOTY4OH1d"
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M929.1653645833334,2590.1999893188477L929.1653645833334,2603.1289215069824Q929.1653645833334,2610.1999893188477 936.2364323951988,2610.1999893188477L1060.3788019798012,2610.1999893188477Q1067.4498697916667,2610.1999893188477 1067.4498697916667,2617.271057130713L1067.4498697916667,2659.499988555908L1067.4498697916667,3026.6203002929688L1067.4498697916667,3050.0492324811034Q1067.4498697916667,3057.1203002929688 1060.3788019798012,3057.1203002929688L1052.3582422910322,3057.1203002929688Q1045.2871744791667,3057.1203002929688 1045.2871744791667,3064.191368104834L1045.2871744791667,3093.1203002929688"
+                      id="my-svg-L_Validate_Failure_0"
+                      class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 4; stroke-dashoffset: 0;;"
+                      data-edge="true" data-et="edge" data-id="L_Validate_Failure_0"
+                      data-points="W3sieCI6OTI5LjE2NTM2NDU4MzMzMzQsInkiOjI1OTAuMTk5OTg5MzE4ODQ3N30seyJ4Ijo5MjkuMTY1MzY0NTgzMzMzNCwieSI6MjYxMC4xOTk5ODkzMTg4NDc3fSx7IngiOjEwNjcuNDQ5ODY5NzkxNjY2NywieSI6MjYxMC4xOTk5ODkzMTg4NDc3fSx7IngiOjEwNjcuNDQ5ODY5NzkxNjY2NywieSI6MjY1OS40OTk5ODg1NTU5MDh9LHsieCI6MTA2Ny40NDk4Njk3OTE2NjY3LCJ5IjozMDI2LjYyMDMwMDI5Mjk2ODh9LHsieCI6MTA2Ny40NDk4Njk3OTE2NjY3LCJ5IjozMDU3LjEyMDMwMDI5Mjk2ODh9LHsieCI6MTA0NS4yODcxNzQ0NzkxNjY3LCJ5IjozMDU3LjEyMDMwMDI5Mjk2ODh9LHsieCI6MTA0NS4yODcxNzQ0NzkxNjY3LCJ5IjozMDk3LjEyMDMwMDI5Mjk2ODh9XQ=="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M813.8203125,2688.7999877929688L813.8203125,2701.7289199811034Q813.8203125,2708.7999877929688 820.8913803118655,2708.7999877929688L874.4256769798012,2708.7999877929688Q881.4967447916666,2708.7999877929688 881.4967447916666,2715.871055604834L881.4967447916666,3026.6203002929688L881.4967447916666,3050.0492324811034Q881.4967447916666,3057.1203002929688 888.567812603532,3057.1203002929688L972.5567316673012,3057.1203002929688Q979.6277994791667,3057.1203002929688 979.6277994791667,3064.191368104834L979.6277994791667,3093.1203002929688"
+                      id="my-svg-L_Verify_Failure_0"
+                      class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 4; stroke-dashoffset: 0;;"
+                      data-edge="true" data-et="edge" data-id="L_Verify_Failure_0"
+                      data-points="W3sieCI6ODEzLjgyMDMxMjUsInkiOjI2ODguNzk5OTg3NzkyOTY4OH0seyJ4Ijo4MTMuODIwMzEyNSwieSI6MjcwOC43OTk5ODc3OTI5Njg4fSx7IngiOjg4MS40OTY3NDQ3OTE2NjY2LCJ5IjoyNzA4Ljc5OTk4Nzc5Mjk2ODh9LHsieCI6ODgxLjQ5Njc0NDc5MTY2NjYsInkiOjMwMjYuNjIwMzAwMjkyOTY4OH0seyJ4Ijo4ODEuNDk2NzQ0NzkxNjY2NiwieSI6MzA1Ny4xMjAzMDAyOTI5Njg4fSx7IngiOjk3OS42Mjc3OTk0NzkxNjY3LCJ5IjozMDU3LjEyMDMwMDI5Mjk2ODh9LHsieCI6OTc5LjYyNzc5OTQ3OTE2NjcsInkiOjMwOTcuMTIwMzAwMjkyOTY4OH1d"
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M197.046875,720.4046783447266L197.046875,798.5046768188477L197.046875,923.5046768188477L197.046875,1066.104679107666L197.046875,1340.1367111206055L197.046875,1568.9687423706055L197.046875,1657.5687408447266L197.046875,1782.5687408447266L197.046875,1898.768741607666L197.046875,2172.9343643188477L197.046875,2329.6999893188477L197.046875,2427.0999908447266L197.046875,2552.0999908447266L197.046875,2659.499988555908L197.046875,2852.4601440429688L197.046875,3026.6203002929688L197.046875,3126.4202995300293L197.046875,3215.0202980041504L197.046875,3247.2492294293456Q197.046875,3254.320297241211 204.11794281186548,3254.320297241211L390.0483983339679,3254.320297241211Q397.11946614583337,3254.320297241211 397.11946614583337,3261.3913650530762L397.11946614583337,3290.320297241211"
+                      id="my-svg-L_Draft_Finish_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 2760.66015625 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_Draft_Finish_0"
+                      data-points="W3sieCI6MTk3LjA0Njg3NSwieSI6NzIwLjQwNDY3ODM0NDcyNjZ9LHsieCI6MTk3LjA0Njg3NSwieSI6Nzk4LjUwNDY3NjgxODg0Nzd9LHsieCI6MTk3LjA0Njg3NSwieSI6OTIzLjUwNDY3NjgxODg0Nzd9LHsieCI6MTk3LjA0Njg3NSwieSI6MTA2Ni4xMDQ2NzkxMDc2NjZ9LHsieCI6MTk3LjA0Njg3NSwieSI6MTM0MC4xMzY3MTExMjA2MDU1fSx7IngiOjE5Ny4wNDY4NzUsInkiOjE1NjguOTY4NzQyMzcwNjA1NX0seyJ4IjoxOTcuMDQ2ODc1LCJ5IjoxNjU3LjU2ODc0MDg0NDcyNjZ9LHsieCI6MTk3LjA0Njg3NSwieSI6MTc4Mi41Njg3NDA4NDQ3MjY2fSx7IngiOjE5Ny4wNDY4NzUsInkiOjE4OTguNzY4NzQxNjA3NjY2fSx7IngiOjE5Ny4wNDY4NzUsInkiOjIxNzIuOTM0MzY0MzE4ODQ3N30seyJ4IjoxOTcuMDQ2ODc1LCJ5IjoyMzI5LjY5OTk4OTMxODg0Nzd9LHsieCI6MTk3LjA0Njg3NSwieSI6MjQyNy4wOTk5OTA4NDQ3MjY2fSx7IngiOjE5Ny4wNDY4NzUsInkiOjI1NTIuMDk5OTkwODQ0NzI2Nn0seyJ4IjoxOTcuMDQ2ODc1LCJ5IjoyNjU5LjQ5OTk4ODU1NTkwOH0seyJ4IjoxOTcuMDQ2ODc1LCJ5IjoyODUyLjQ2MDE0NDA0Mjk2ODh9LHsieCI6MTk3LjA0Njg3NSwieSI6MzAyNi42MjAzMDAyOTI5Njg4fSx7IngiOjE5Ny4wNDY4NzUsInkiOjMxMjYuNDIwMjk5NTMwMDI5M30seyJ4IjoxOTcuMDQ2ODc1LCJ5IjozMjE1LjAyMDI5ODAwNDE1MDR9LHsieCI6MTk3LjA0Njg3NSwieSI6MzI1NC4zMjAyOTcyNDEyMTF9LHsieCI6Mzk3LjExOTQ2NjE0NTgzMzM3LCJ5IjozMjU0LjMyMDI5NzI0MTIxMX0seyJ4IjozOTcuMTE5NDY2MTQ1ODMzMzcsInkiOjMyOTQuMzIwMjk3MjQxMjExfV0="
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M475.23567708333337,1686.868740081787L475.23567708333337,1782.5687408447266L475.23567708333337,1898.768741607666L475.23567708333337,1997.368740081787L475.23567708333337,2172.9343643188477L475.23567708333337,2329.6999893188477L475.23567708333337,2552.0999908447266L475.23567708333337,2659.499988555908L475.23567708333337,2852.4601440429688L475.23567708333337,3026.6203002929688L475.23567708333337,3126.4202995300293L475.23567708333337,3215.0202980041504L475.23567708333337,3252.223129272461Q475.23567708333337,3254.320297241211 473.13850911458337,3254.320297241211L473.13850911458337,3254.320297241211Q471.04134114583337,3254.320297241211 471.04134114583337,3256.417465209961L471.04134114583337,3290.320297241211"
+                      id="my-svg-L_Missing_Finish_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 1602.0657958984375 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_Missing_Finish_0"
+                      data-points="W3sieCI6NDc1LjIzNTY3NzA4MzMzMzM3LCJ5IjoxNjg2Ljg2ODc0MDA4MTc4N30seyJ4Ijo0NzUuMjM1Njc3MDgzMzMzMzcsInkiOjE3ODIuNTY4NzQwODQ0NzI2Nn0seyJ4Ijo0NzUuMjM1Njc3MDgzMzMzMzcsInkiOjE4OTguNzY4NzQxNjA3NjY2fSx7IngiOjQ3NS4yMzU2NzcwODMzMzMzNywieSI6MTk5Ny4zNjg3NDAwODE3ODd9LHsieCI6NDc1LjIzNTY3NzA4MzMzMzM3LCJ5IjoyMTcyLjkzNDM2NDMxODg0Nzd9LHsieCI6NDc1LjIzNTY3NzA4MzMzMzM3LCJ5IjoyMzI5LjY5OTk4OTMxODg0Nzd9LHsieCI6NDc1LjIzNTY3NzA4MzMzMzM3LCJ5IjoyNTUyLjA5OTk5MDg0NDcyNjZ9LHsieCI6NDc1LjIzNTY3NzA4MzMzMzM3LCJ5IjoyNjU5LjQ5OTk4ODU1NTkwOH0seyJ4Ijo0NzUuMjM1Njc3MDgzMzMzMzcsInkiOjI4NTIuNDYwMTQ0MDQyOTY4OH0seyJ4Ijo0NzUuMjM1Njc3MDgzMzMzMzcsInkiOjMwMjYuNjIwMzAwMjkyOTY4OH0seyJ4Ijo0NzUuMjM1Njc3MDgzMzMzMzcsInkiOjMxMjYuNDIwMjk5NTMwMDI5M30seyJ4Ijo0NzUuMjM1Njc3MDgzMzMzMzcsInkiOjMyMTUuMDIwMjk4MDA0MTUwNH0seyJ4Ijo0NzUuMjM1Njc3MDgzMzMzMzcsInkiOjMyNTQuMzIwMjk3MjQxMjExfSx7IngiOjQ3MS4wNDEzNDExNDU4MzMzNywieSI6MzI1NC4zMjAyOTcyNDEyMTF9LHsieCI6NDcxLjA0MTM0MTE0NTgzMzM3LCJ5IjozMjk0LjMyMDI5NzI0MTIxMX1d"
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+                <path d="M1012.4574869791667,3155.72029876709L1012.4574869791667,3267.2492294293456Q1012.4574869791667,3274.320297241211 1005.3864191673013,3274.320297241211L625.9561589576988,3274.320297241211Q618.8850911458334,3274.320297241211 618.8850911458334,3281.3913650530762L618.8850911458334,3290.320297241211"
+                      id="my-svg-L_Failure_Finish_0"
+                      class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
+                      style="stroke-dasharray: 0 0 518.8443603515625 4; stroke-dashoffset: 0;;" data-edge="true"
+                      data-et="edge" data-id="L_Failure_Finish_0"
+                      data-points="W3sieCI6MTAxMi40NTc0ODY5NzkxNjY3LCJ5IjozMTU1LjcyMDI5ODc2NzA5fSx7IngiOjEwMTIuNDU3NDg2OTc5MTY2NywieSI6MzI3NC4zMjAyOTcyNDEyMTF9LHsieCI6NjE4Ljg4NTA5MTE0NTgzMzQsInkiOjMyNzQuMzIwMjk3MjQxMjExfSx7IngiOjYxOC44ODUwOTExNDU4MzM0LCJ5IjozMjk0LjMyMDI5NzI0MTIxMX1d"
+                      data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/>
+            </g>
+            <g class="edgeLabels">
+                <g class="edgeLabel" transform="translate(196.82421875, 593.7046813964844)">
+                    <g class="label" data-id="L_ExtractOK_Draft_0" transform="translate(-0.05078125, -10.5)">
+                        <g>
+                            <rect class="background" style="" x="-12.2265625" y="0" width="24.5546875" height="21"/>
+                            <text y="-10.1" text-anchor="middle" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">No</tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="edgeLabel" transform="translate(958.8880208333333, 593.7046813964844)">
+                    <g class="label" data-id="L_ExtractOK_Index_0" transform="translate(0.5, -10.5)">
+                        <g>
+                            <rect class="background" style="" x="-16.0546875" y="0" width="31.109375" height="21"/>
+                            <text y="-10.1" text-anchor="middle" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Yes</tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="edgeLabel" transform="translate(475.01302083333337, 1568.9687423706055)">
+                    <g class="label" data-id="L_Scope_Missing_0" transform="translate(-0.05078125, -10.5)">
+                        <g>
+                            <rect class="background" style="" x="-12.2265625" y="0" width="24.5546875" height="21"/>
+                            <text y="-10.1" text-anchor="middle" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">No</tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="edgeLabel" transform="translate(1322.0716145833335, 1568.9687423706055)">
+                    <g class="label" data-id="L_Scope_Embed_0" transform="translate(0.5, -10.5)">
+                        <g>
+                            <rect class="background" style="" x="-16.0546875" y="0" width="31.109375" height="21"/>
+                            <text y="-10.1" text-anchor="middle" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Yes</tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="edgeLabel" transform="translate(1166.6783854166665, 2329.6999893188477)">
+                    <g class="label" data-id="L_WantsTools_Calculate_0" transform="translate(0.2265625, -10.5)">
+                        <g>
+                            <rect class="background" style="" x="-98.328125" y="0" width="196.203125" height="21"/>
+                            <text y="-10.1" text-anchor="middle" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Yes:
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">within
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">four-call
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">budget
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="edgeLabel" transform="translate(1322.5169270833335, 2172.9343643188477)">
+                    <g class="label" data-id="L_Calculate_Generate_0"
+                       transform="translate(-0.046875, -28.099998474121094)">
+                        <g>
+                            <rect class="background" style="" x="-78.953125" y="0" width="158"
+                                  height="56.19999694824219"/>
+                            <text y="-10.1" text-anchor="middle" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Tool
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">evidence
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">back
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">to</tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">model;
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">at</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">most
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">three
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="2.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        generation
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">calls
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="edgeLabel" transform="translate(878.4973958333334, 2329.6999893188477)">
+                    <g class="label" data-id="L_WantsTools_DraftAnswer_0" transform="translate(-0.05078125, -10.5)">
+                        <g>
+                            <rect class="background" style="" x="-54.4765625" y="0" width="109.0546875" height="21"/>
+                            <text y="-10.1" text-anchor="middle" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Final
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">response
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="edgeLabel" transform="translate(617.6412760416666, 3126.4202995300293)">
+                    <g class="label" data-id="L_Accepted_Finish_0" transform="translate(0.5, -10.5)">
+                        <g>
+                            <rect class="background" style="" x="-16.0546875" y="0" width="31.109375" height="21"/>
+                            <text y="-10.1" text-anchor="middle" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Yes</tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="edgeLabel" transform="translate(676.4065755208334, 3026.6203002929688)">
+                    <g class="label" data-id="L_Accepted_Failure_0" transform="translate(-0.05078125, -10.5)">
+                        <g>
+                            <rect class="background" style="" x="-12.2265625" y="0" width="24.5546875" height="21"/>
+                            <text y="-10.1" text-anchor="middle" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">No</tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="edgeLabel" transform="translate(1462.9075520833335, 2552.0999908447266)">
+                    <g class="label" data-id="L_Generate_Failure_0"
+                       transform="translate(-0.046875, -19.299999237060547)">
+                        <g>
+                            <rect class="background" style="" x="-82.9296875" y="0" width="165.953125"
+                                  height="38.599998474121094"/>
+                            <text y="-10.1" text-anchor="middle" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Model
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">error
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">or</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">rejected
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">response
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="edgeLabel" transform="translate(1067.4264322916667, 2852.4601440429688)">
+                    <g class="label" data-id="L_Validate_Failure_0"
+                       transform="translate(-0.046875, -19.299999237060547)">
+                        <g>
+                            <rect class="background" style="" x="-82.9296875" y="0" width="165.953125"
+                                  height="38.599998474121094"/>
+                            <text y="-10.1" text-anchor="middle" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Model
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">error
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">or</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">rejected
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">response
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="edgeLabel" transform="translate(881.4733072916666, 2852.4601440429688)">
+                    <g class="label" data-id="L_Verify_Failure_0" transform="translate(-0.046875, -19.299999237060547)">
+                        <g>
+                            <rect class="background" style="" x="-82.9296875" y="0" width="165.953125"
+                                  height="38.599998474121094"/>
+                            <text y="-10.1" text-anchor="middle" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Model
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">error
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">or</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">rejected
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">response
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="edgeLabel" transform="translate(197.02734375, 1997.368740081787)">
+                    <g class="label" data-id="L_Draft_Finish_0" transform="translate(-0.05078125, -19.299999237060547)">
+                        <g>
+                            <rect class="background" style="" x="-74.9296875" y="0" width="149.9609375"
+                                  height="38.599998474121094"/>
+                            <text y="-10.1" text-anchor="middle" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Persist
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">outcome
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">publish
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">progress
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="edgeLabel" transform="translate(475.21614583333337, 2427.0999908447266)">
+                    <g class="label" data-id="L_Missing_Finish_0"
+                       transform="translate(-0.05078125, -19.299999237060547)">
+                        <g>
+                            <rect class="background" style="" x="-74.9296875" y="0" width="149.9609375"
+                                  height="38.599998474121094"/>
+                            <text y="-10.1" text-anchor="middle" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Persist
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">outcome
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">publish
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">progress
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="edgeLabel" transform="translate(1012.4379557291667, 3215.0202980041504)">
+                    <g class="label" data-id="L_Failure_Finish_0"
+                       transform="translate(-0.05078125, -19.299999237060547)">
+                        <g>
+                            <rect class="background" style="" x="-74.9296875" y="0" width="149.9609375"
+                                  height="38.599998474121094"/>
+                            <text y="-10.1" text-anchor="middle" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Persist
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">outcome
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em" text-anchor="middle">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">publish
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">progress
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g class="nodes">
+                <g class="node default" id="my-svg-flowchart-Upload-0" data-look="neo"
+                   transform="translate(752.7415364583334, 50.099998474121094)">
+                    <rect class="basic label-container" style="" x="-183.3515625" y="-38.099998474121094"
+                          width="366.703125" height="76.19999694824219"/>
+                    <g class="label" style="" transform="translate(0, -26.099998474121094)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        Prerequisite:
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">upload
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">fictional
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">ACME
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Q1</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Q2</tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">reports
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="2.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">April
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">to</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">June
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">2025
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">July
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">to</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">September
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">2025
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Extract-1" data-look="neo"
+                   transform="translate(752.7415364583334, 166.29999542236328)">
+                    <rect class="basic label-container" style="" x="-182.7734375" y="-38.099998474121094"
+                          width="365.546875" height="76.19999694824219"/>
+                    <g class="label" style="" transform="translate(0, -26.099998474121094)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        submitUpload
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">→</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">worker
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">run</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">→</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        processTurn
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">→</tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">upload
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="2.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Docling
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">chunks
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">metadata
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">evidence
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">checks
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-ExtractOK-2" data-look="neo"
+                   transform="translate(752.7415364583334, 393.8023376464844)">
+                    <polygon points="149.40234375,0 298.8046875,-149.40234375 149.40234375,-298.8046875 0,-149.40234375"
+                             class="label-container" transform="translate(-148.90234375, 149.40234375)"/>
+                    <g class="label" style="" transform="translate(0, -8.5)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        Extraction
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">metadata
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">complete?
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Draft-3" data-look="neo"
+                   transform="translate(197.046875, 682.3046798706055)">
+                    <rect class="basic label-container" style="" x="-185.046875" y="-38.099998474121094"
+                          width="370.09375" height="76.19999694824219"/>
+                    <g class="label" style="" transform="translate(0, -26.099998474121094)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Failure
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">or</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        clarification
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">retain
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">draft
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">/</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">prior
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">usable
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">version;
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">do</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">not</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">publish
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="2.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">partial
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">evidence
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Index-4" data-look="neo"
+                   transform="translate(959.3333333333334, 682.3046798706055)">
+                    <rect class="basic label-container" style="" x="-188.13671875" y="-38.099998474121094"
+                          width="376.2734375" height="76.19999694824219"/>
+                    <g class="label" style="" transform="translate(0, -26.099998474121094)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        ResearchEngine.publish
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">embed
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">chunks,
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">validate
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">vectors,
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        atomically
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">store
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="2.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">version
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Ask-5" data-look="neo"
+                   transform="translate(959.3333333333334, 798.5046768188477)">
+                    <rect class="basic label-container" style="" x="-189.98828125" y="-38.099998474121094"
+                          width="379.9765625" height="76.19999694824219"/>
+                    <g class="label" style="" transform="translate(0, -26.099998474121094)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">User
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">sends
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">text
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">in</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">the</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">widget
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">What
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">changed
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">in</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">ACME
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">revenue
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">over
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">its</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">last
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">two</tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="2.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">quarters?
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Queue-6" data-look="neo"
+                   transform="translate(959.3333333333333, 923.5046768188477)">
+                    <rect class="basic label-container" style="" x="-178.390625" y="-46.900001525878906"
+                          width="356.78125" height="93.80000305175781"/>
+                    <g class="label" style="" transform="translate(0, -34.900001525878906)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">send
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">→</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        controller.message
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">→</tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        client.submitMessage
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="2.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">reserve
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">owned
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">turn,
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">queue
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">durable
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">job,
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">return
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="3.2em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">HTTP
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">202</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">job</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">ID</tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Plan-7" data-look="neo"
+                   transform="translate(959.3333333333333, 1066.104679107666)">
+                    <rect class="basic label-container" style="" x="-183.0546875" y="-55.70000076293945"
+                          width="366.109375" height="111.4000015258789"/>
+                    <g class="label" style="" transform="translate(0, -43.70000076293945)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        worker.run
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">→</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        chatbot.processTurn
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">→</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">research
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        model-session
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">readiness
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">optional
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="2.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        separate-VM
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">cold
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">start
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="3.2em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">one</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        QUERY_SCOPE
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">call
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">uses
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">catalog,
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">aliases
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="4.300000000000001em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">private
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">history
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Scope-8" data-look="neo"
+                   transform="translate(959.3333333333333, 1340.1367111206055)">
+                    <polygon points="178.33203125,0 356.6640625,-178.33203125 178.33203125,-356.6640625 0,-178.33203125"
+                             class="label-container" transform="translate(-177.83203125, 178.33203125)"/>
+                    <g class="label" style="" transform="translate(0, -8.5)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Intent
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">clear
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">required
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">periods
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">uploaded?
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Missing-9" data-look="neo"
+                   transform="translate(475.23567708333337, 1657.5687408447266)">
+                    <rect class="basic label-container" style="" x="-178.3046875" y="-29.299999237060547"
+                          width="356.609375" height="58.599998474121094"/>
+                    <g class="label" style="" transform="translate(0, -17.299999237060547)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        Clarification
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">or</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        insufficient
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">evidence
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">identify
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">ambiguity
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">or</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">missing
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">reporting
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">interval
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Embed-10" data-look="neo"
+                   transform="translate(1322.5169270833335, 1657.5687408447266)">
+                    <rect class="basic label-container" style="" x="-171.72265625" y="-38.099998474121094"
+                          width="343.4453125" height="76.19999694824219"/>
+                    <g class="label" style="" transform="translate(0, -26.099998474121094)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        engine.ask
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">→</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">search
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">→</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        model.embed
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">embed
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">the</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        standalone
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">question
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">once;
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">reuse
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="2.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">document
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">vectors
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Retrieve-11" data-look="neo"
+                   transform="translate(1322.5169270833335, 1782.5687408447266)">
+                    <rect class="basic label-container" style="" x="-189.23828125" y="-46.900001525878906"
+                          width="378.4765625" height="93.80000305175781"/>
+                    <g class="label" style="" transform="translate(0, -34.900001525878906)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        store.search
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">for</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">each
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">validated
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">company
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">period
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="2.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">cosine
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">search
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">+</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        PostgreSQL
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">full-text
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">rank
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">+</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">RRF</tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="3.2em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">+</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">neighbors
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Context-12" data-look="neo"
+                   transform="translate(1322.5169270833335, 1898.768741607666)">
+                    <rect class="basic label-container" style="" x="-193.9296875" y="-29.299999237060547"
+                          width="387.859375" height="58.599998474121094"/>
+                    <g class="label" style="" transform="translate(0, -17.299999237060547)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        engine.balanced
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">→</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">generate
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">bounded,
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        deduplicated
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">evidence
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">scoped
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">tools
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Generate-13" data-look="neo"
+                   transform="translate(1322.5169270833335, 1997.368740081787)">
+                    <rect class="basic label-container" style="" x="-149.47265625" y="-29.299999237060547"
+                          width="298.9453125" height="58.599998474121094"/>
+                    <g class="label" style="" transform="translate(0, -17.299999237060547)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        OllamaGateway.generate
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">native
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        guardrails
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">model
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">response
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-WantsTools-14" data-look="neo"
+                   transform="translate(986.2259114583334, 2172.9343643188477)">
+                    <polygon points="106.265625,0 212.53125,-106.265625 106.265625,-212.53125 0,-106.265625"
+                             class="label-container" transform="translate(-105.765625, 106.265625)"/>
+                    <g class="label" style="" transform="translate(0, -8.5)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Permitted
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">tool
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">request?
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Calculate-15" data-look="neo"
+                   transform="translate(1263.6653645833335, 2427.0999908447266)">
+                    <rect class="basic label-container" style="" x="-179.265625" y="-46.900001525878906"
+                          width="358.53125" height="93.80000305175781"/>
+                    <g class="label" style="" transform="translate(0, -34.900001525878906)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Scoped
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        FinancialTools
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">execute
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        sequentially
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">in</tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Java
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="2.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">verified
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        snapshots:
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">INR</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">100</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">120</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">crore;
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="3.2em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">change
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">20,</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">growth
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">20</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">percent
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-DraftAnswer-16" data-look="neo"
+                   transform="translate(878.9700520833334, 2427.0999908447266)">
+                    <rect class="basic label-container" style="" x="-165.4296875" y="-29.299999237060547"
+                          width="330.859375" height="58.599998474121094"/>
+                    <g class="label" style="" transform="translate(0, -17.299999237060547)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Final
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        structured
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">claims
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">from
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">the</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">model
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">citation
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">IDs</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">financial
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">fact
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        placeholders
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Validate-17" data-look="neo"
+                   transform="translate(878.9700520833334, 2552.0999908447266)">
+                    <rect class="basic label-container" style="" x="-160.5859375" y="-38.099998474121094"
+                          width="321.171875" height="76.19999694824219"/>
+                    <g class="label" style="" transform="translate(0, -26.099998474121094)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        AnswerValidator.validate
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">schema,
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        citations,
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">quoted
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">facts
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Java
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="2.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        quantities
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Verify-18" data-look="neo"
+                   transform="translate(758.1666666666666, 2659.499988555908)">
+                    <rect class="basic label-container" style="" x="-176.9609375" y="-29.299999237060547"
+                          width="353.921875" height="58.599998474121094"/>
+                    <g class="label" style="" transform="translate(0, -17.299999237060547)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">One</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">tool-free
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">verifier
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">call
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">for</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">nonempty
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">claims
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">a</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">complete
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">support
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">verdict
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">for</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">every
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">claim
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Accepted-19" data-look="neo"
+                   transform="translate(634.8365885416667, 2852.4601440429688)">
+                    <polygon points="123.66015625,0 247.3203125,-123.66015625 123.66015625,-247.3203125 0,-123.66015625"
+                             class="label-container" transform="translate(-123.16015625, 123.66015625)"/>
+                    <g class="label" style="" transform="translate(0, -8.5)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">All</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">mandatory
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">checks
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">pass?
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Failure-20" data-look="neo"
+                   transform="translate(1012.4574869791667, 3126.4202995300293)">
+                    <rect class="basic label-container" style="" x="-174.1484375" y="-29.299999237060547"
+                          width="348.296875" height="58.599998474121094"/>
+                    <g class="label" style="" transform="translate(0, -17.299999237060547)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Explicit
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">failure
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">or</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        insufficient
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">evidence
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">no</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">accepted
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">unchecked
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">draft;
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">retry
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">is</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">explicit
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Finish-21" data-look="neo"
+                   transform="translate(508.00227864583337, 3341.22029876709)">
+                    <rect class="basic label-container" style="" x="-194.8046875" y="-46.900001525878906"
+                          width="389.609375" height="93.80000305175781"/>
+                    <g class="label" style="" transform="translate(0, -34.900001525878906)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        store.finish
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">persists
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">private
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">result
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">clears
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">active
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">turn
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="2.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">client
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        completion
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">→</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        controller
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">SSE</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">→</tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="3.2em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">
+                                        widget.watch
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">→</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">reload
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">→</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">render
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g class="node default" id="my-svg-flowchart-Display-22" data-look="neo"
+                   transform="translate(508.00227864583337, 3466.22029876709)">
+                    <rect class="basic label-container" style="" x="-178.8203125" y="-38.099998474121094"
+                          width="357.640625" height="76.19999694824219"/>
+                    <g class="label" style="" transform="translate(0, -26.099998474121094)">
+                        <rect/>
+                        <g>
+                            <rect class="background" style="stroke: none"/>
+                            <text y="-10.1" style="">
+                                <tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Widget
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">displays
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">the</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">typed
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">outcome;
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">accepted
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">answers
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">include
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">citations
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">and</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">PDF</tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">links
+                                    </tspan>
+                                </tspan>
+                                <tspan class="text-outer-tspan row" x="0" y="2.1em" dy="1.1em">
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">release
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">work
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">lease;
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">shared
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">host
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">stays
+                                    </tspan>
+                                    <tspan font-style="normal" class="text-inner-tspan" font-weight="normal">running
+                                    </tspan>
+                                </tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <defs>
+        <filter id="my-svg-drop-shadow" height="130%" width="130%">
+            <feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/>
+        </filter>
+    </defs>
+    <defs>
+        <filter id="my-svg-drop-shadow-small" height="150%" width="150%">
+            <feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/>
+        </filter>
+    </defs>
+    <linearGradient id="my-svg-gradient" gradientUnits="objectBoundingBox" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="hsl(0, 0%, 83.3333333333%)" stop-opacity="1"/>
+        <stop offset="100%" stop-color="hsl(0, 0%, 88.9215686275%)" stop-opacity="1"/>
+    </linearGradient>
+</svg>

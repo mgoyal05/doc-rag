@@ -1,0 +1,167 @@
+{
+  "uid": "research-runtime",
+  "title": "Document Research \u2014 Runtime and Validation",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Queue depth",
+      "type": "timeseries",
+      "datasource": {
+        "uid": "research-prometheus",
+        "type": "prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "research_queue_depth",
+          "legendFormat": "{{operation}} {{outcome}} {{role}} {{direction}}"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Active work",
+      "type": "timeseries",
+      "datasource": {
+        "uid": "research-prometheus",
+        "type": "prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "research_active",
+          "legendFormat": "{{operation}} {{outcome}} {{role}} {{direction}}"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Job duration (mean seconds)",
+      "type": "timeseries",
+      "datasource": {
+        "uid": "research-prometheus",
+        "type": "prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(rate(research_operation_seconds_sum{operation=\"job\"}[5m])) / clamp_min(sum(rate(research_operation_seconds_count{operation=\"job\"}[5m])), 0.001)",
+          "legendFormat": "{{operation}} {{outcome}} {{role}} {{direction}}"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Stage durations",
+      "type": "timeseries",
+      "datasource": {
+        "uid": "research-prometheus",
+        "type": "prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "rate(research_operation_seconds_sum[5m]) / clamp_min(rate(research_operation_seconds_count[5m]), 0.001)",
+          "legendFormat": "{{operation}} {{outcome}} {{role}} {{direction}}"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Outcomes",
+      "type": "timeseries",
+      "datasource": {
+        "uid": "research-prometheus",
+        "type": "prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 16,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by (operation,outcome) (increase(research_outcome_total[10m]))",
+          "legendFormat": "{{operation}} {{outcome}} {{role}} {{direction}}"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Model tokens",
+      "type": "timeseries",
+      "datasource": {
+        "uid": "research-prometheus",
+        "type": "prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 16,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(role,direction) (rate(research_model_tokens_total[5m]))",
+          "legendFormat": "{{operation}} {{outcome}} {{role}} {{direction}}"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Model load and inference",
+      "type": "timeseries",
+      "datasource": {
+        "uid": "research-prometheus",
+        "type": "prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 24,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "rate(research_model_duration_seconds_sum[5m]) / clamp_min(rate(research_model_duration_seconds_count[5m]), 0.001)",
+          "legendFormat": "{{operation}} {{outcome}} {{role}} {{direction}}"
+        }
+      ]
+    }
+  ]
+}

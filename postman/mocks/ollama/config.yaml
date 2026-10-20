@@ -1,0 +1,6 @@
+version: 1
+name: research-ollama-contract
+interceptRequests: true
+scenarios:
+  - name: default
+    path: default.js

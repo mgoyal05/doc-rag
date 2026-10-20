@@ -1,0 +1,59 @@
+receivers:
+  otlp:
+    protocols:
+      http: { endpoint: "0.0.0.0:4318" }
+  filelog:
+    include: [ /var/research-logs/*.json ]
+    start_at: end
+    operators:
+      - type: json_parser
+        parse_to: body
+processors:
+  memory_limiter:
+    check_interval: 1s
+    limit_mib: 192
+    spike_limit_mib: 32
+  filter/research_logs:
+    error_mode: propagate
+    logs:
+      log_record:
+        - 'body["log.logger"] != "docrag.telemetry.ResearchTelemetry"'
+  transform/safe_logs:
+    error_mode: propagate
+    log_statements:
+      - context: log
+        statements:
+          - 'keep_keys(body, ["research_operation", "research_outcome", "trace_id", "span_id"])'
+  transform/safe_traces:
+    error_mode: propagate
+    trace_statements:
+      - context: resource
+        statements:
+          - 'keep_keys(attributes, ["service.name", "service.version", "deployment.environment.name"])'
+      - context: span
+        statements:
+          - 'keep_keys(attributes, ["research.job.id", "research.outcome", "http.request.method", "http.response.status_code", "http.route"])'
+      - context: spanevent
+        statements:
+          - 'keep_keys(attributes, ["research.operation", "research.outcome"])'
+  batch:
+    send_batch_size: 64
+    send_batch_max_size: 128
+    timeout: 5s
+exporters:
+  prometheus:
+    endpoint: "0.0.0.0:8889"
+  otlp/tempo:
+    endpoint: tempo:4317
+    tls: { insecure: true }
+    sending_queue: { queue_size: 128, num_consumers: 1 }
+    retry_on_failure: { initial_interval: 1s, max_interval: 5s, max_elapsed_time: 10s }
+  otlphttp/loki:
+    endpoint: http://loki:3100/otlp
+    sending_queue: { queue_size: 128, num_consumers: 1 }
+    retry_on_failure: { initial_interval: 1s, max_interval: 5s, max_elapsed_time: 10s }
+service:
+  pipelines:
+    metrics: { receivers: [ otlp ], processors: [ memory_limiter, batch ], exporters: [ prometheus ] }
+    traces: { receivers: [ otlp ], processors: [ memory_limiter, transform/safe_traces, batch ], exporters: [ otlp/tempo ] }
+    logs: { receivers: [ filelog ], processors: [ memory_limiter, filter/research_logs, transform/safe_logs, batch ], exporters: [ otlphttp/loki ] }

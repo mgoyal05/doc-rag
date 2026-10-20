@@ -1,0 +1,14 @@
+target/
+research-data/
+research-demo/
+data/
+node_modules/
+.env
+.env.*
+!.env.example
+.idea/
+*.iml
+*.log
+*.ndjson
+*.zip
+dist/

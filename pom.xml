@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         child.project.url.inherit.append.path="false"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.github.mgoyal05</groupId>
+    <artifactId>doc-rag-parent</artifactId>
+    <version>0.1.0</version>
+    <packaging>pom</packaging>
+    <name>DocRAG</name>
+    <description>Java conversational RAG with hybrid retrieval, financial tools, validated citations and an embeddable
+        widget
+    </description>
+    <url>https://github.com/mgoyal05/doc-rag</url>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>mgoyal05</id>
+            <name>Manish Goyal</name>
+            <url>https://github.com/mgoyal05</url>
+        </developer>
+    </developers>
+    <scm child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false"
+         child.scm.url.inherit.append.path="false">
+        <connection>scm:git:https://github.com/mgoyal05/doc-rag.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/mgoyal05/doc-rag.git</developerConnection>
+        <url>https://github.com/mgoyal05/doc-rag</url>
+        <tag>v0.1.0</tag>
+    </scm>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/mgoyal05/doc-rag/issues</url>
+    </issueManagement>
+    <modules>
+        <module>core</module>
+        <module>docling</module>
+        <module>widget</module>
+        <module>observability</module>
+        <module>spring-boot</module>
+        <module>examples/spring-boot</module>
+    </modules>
+    <properties>
+        <java.version>21</java.version>
+        <maven.compiler.release>21</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <langchain4j.version>1.22.0</langchain4j.version>
+        <spring-boot.version>4.0.8</spring-boot.version>
+        <maven.source.skip>false</maven.source.skip>
+        <maven.javadoc.skip>false</maven.javadoc.skip>
+        <docrag.skipPublishing>false</docrag.skipPublishing>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>${maven.multiModuleProjectDirectory}</directory>
+                <targetPath>META-INF</targetPath>
+                <includes>
+                    <include>LICENSE</include>
+                    <include>NOTICE</include>
+                    <include>THIRD_PARTY_NOTICES.md</include>
+                </includes>
+            </resource>
+        </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.4.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.3.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>3.1.4</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>3.1.4</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.4.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <id>source-integrity</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <resourcecount property="empty.sources">
+                                    <fileset dir="${project.basedir}"
+                                             excludes="**/target/**,**/node_modules/**,.git/**,.idea/**,data/**,research-data/**,research-demo/**,dist/**">
+                                        <and>
+                                            <size value="0" when="equal"/>
+                                            <or>
+                                                <filename name="**/*.java"/>
+                                                <filename name="**/*.sql"/>
+                                                <filename name="**/*.xml"/>
+                                                <filename name="**/*.json"/>
+                                                <filename name="**/*.yaml"/>
+                                                <filename name="**/*.yml"/>
+                                                <filename name="**/*.properties"/>
+                                                <filename name="**/*.ps1"/>
+                                                <filename name="**/*.sh"/>
+                                                <filename name="**/*.js"/>
+                                                <filename name="**/*.mjs"/>
+                                                <filename name="**/*.html"/>
+                                                <filename name="**/*.md"/>
+                                                <filename name="LICENSE"/>
+                                                <filename name="NOTICE"/>
+                                                <filename name=".env.example"/>
+                                                <filename name=".gitattributes"/>
+                                                <filename name="mvnw"/>
+                                                <filename name="mvnw.cmd"/>
+                                            </or>
+                                        </and>
+                                    </fileset>
+                                </resourcecount>
+                                <fail message="Unexpected empty source/configuration/license/script files; restore before building.">
+                                    <condition>
+                                        <not>
+                                            <equals arg1="${empty.sources}" arg2="0"/>
+                                        </not>
+                                    </condition>
+                                </fail>
+                                <fail message="Release prerequisites missing: LICENSE, NOTICE, schema or wrapper">
+                                    <condition>
+                                        <not>
+                                            <and>
+                                                <available file="LICENSE"/>
+                                                <available file="NOTICE"/>
+                                                <available file="core/src/main/resources/db/research/V1__research.sql"/>
+                                                <available file="mvnw"/>
+                                                <available file="mvnw.cmd"/>
+                                            </and>
+                                        </not>
+                                    </condition>
+                                </fail>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.14.1</version>
+                <configuration>
+                    <parameters>true</parameters>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.4</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.6.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireJavaVersion>
+                                    <version>[21,)</version>
+                                </requireJavaVersion>
+                                <requireMavenVersion>
+                                    <version>[3.9,)</version>
+                                </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.12.0</version>
+                <configuration>
+                    <doclint>none</doclint>
+                    <quiet>true</quiet>
+                    <notimestamp>true</notimestamp>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>api-docs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <!-- Explicit, signed, LOCAL bundle only. No upload or auto-publication. -->
+    <profiles>
+        <profile>
+            <id>release-bundle</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>3.2.8</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <bestPractices>true</bestPractices>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.12.0</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <skipUpload>true</skipUpload>
+                            <autoPublish>false</autoPublish>
+                            <skipPublishing>${docrag.skipPublishing}</skipPublishing>
+                            <excludeArtifacts>
+                                <excludeArtifact>doc-rag-example</excludeArtifact>
+                            </excludeArtifacts>
+                            <deploymentName>DocRAG-${project.version}</deploymentName>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

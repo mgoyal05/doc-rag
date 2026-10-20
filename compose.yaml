@@ -1,0 +1,28 @@
+name: document-research-local
+services:
+  postgres:
+    image: pgvector/pgvector:0.8.2-pg17
+    environment:
+      POSTGRES_DB: research
+      POSTGRES_USER: research
+      POSTGRES_PASSWORD: ${RESEARCH_LOCAL_PASSWORD:?Set a local development password}
+    ports: [ "127.0.0.1:55432:5432" ]
+    volumes:
+      - research-postgres:/var/lib/postgresql/data
+      - ./docs/local-vector.sql:/docker-entrypoint-initdb.d/01-vector.sql:ro
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U research -d research" ]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+    cpus: 1
+    mem_limit: 1g
+  docling:
+    image: ghcr.io/docling-project/docling-serve-cpu:v1.30.0
+    ports: [ "127.0.0.1:55001:5001" ]
+    environment:
+      DOCLING_SERVE_ENABLE_UI: "false"
+    cpus: 2
+    mem_limit: 4g
+volumes:
+  research-postgres:

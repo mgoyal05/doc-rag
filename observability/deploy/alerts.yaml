@@ -1,0 +1,23 @@
+groups:
+  - name: research
+    rules:
+      - alert: ResearchFailures
+        expr: sum(increase(research_outcome_total{operation="job",outcome="FAILED"}[10m])) > 0
+        for: 1m
+        labels: { severity: warning }
+        annotations: { summary: "Research jobs are failing; inspect correlated traces" }
+      - alert: ResearchQueueSaturated
+        expr: research_queue_depth >= 8
+        for: 2m
+        labels: { severity: warning }
+        annotations: { summary: "Research queue remains full" }
+      - alert: ResearchValidationRejected
+        expr: sum(increase(research_outcome_total{operation="validation",outcome=~"UNSUPPORTED_CLAIM|NUMERICAL_VALIDATION|INVALID_RESPONSE|VERIFIER_UNAVAILABLE"}[10m])) > 0
+        for: 1m
+        labels: { severity: warning }
+        annotations: { summary: "Research answers were withheld by validation" }
+      - alert: ResearchHighLatency
+        expr: sum(rate(research_operation_seconds_sum{operation="job"}[10m])) / clamp_min(sum(rate(research_operation_seconds_count{operation="job"}[10m])), 0.001) > 180
+        for: 5m
+        labels: { severity: warning }
+        annotations: { summary: "Mean research job duration exceeds the initial 180-second warning threshold" }

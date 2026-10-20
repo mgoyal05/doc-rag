@@ -1,0 +1,7 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="chat" th:if="${researchChatEnabled == true}">
+    <script th:src="@{/js/research-chat-loader.js}" type="module"></script>
+</th:block>
+</html>
+

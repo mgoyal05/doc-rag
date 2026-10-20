@@ -1,0 +1,15 @@
+# Explicit override: pre-provision model artifacts before disabling egress. Never started automatically.
+services:
+  docling:
+    networks: [ docling-isolated ]
+    cap_drop: [ ALL ]
+    security_opt: [ "no-new-privileges:true" ]
+    read_only: true
+    tmpfs: [ "/tmp:size=1073741824,mode=1777" ]
+    pids_limit: 128
+    environment:
+      OMP_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+      TOKENIZERS_PARALLELISM: "false"
+networks:
+  docling-isolated: { internal: true }

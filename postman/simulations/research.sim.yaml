@@ -1,0 +1,13 @@
+simulation: research-runtime-contract
+routing: path
+mocks:
+  - routeKey: ollama
+    path: ../mocks/ollama/config.yaml
+  - routeKey: docling
+    path: ../mocks/docling/config.yaml
+  - routeKey: ollama-failure
+    path: ../mocks/ollama-failure/config.yaml
+    scenarios:
+      - overrides:
+          conditions:
+            error: { status_code: 503 }

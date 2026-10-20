@@ -1,0 +1,18 @@
+apiVersion: 1
+datasources:
+  - { name: Prometheus, uid: research-prometheus, type: prometheus, access: proxy, url: "http://prometheus:9090", isDefault: true }
+  - name: Tempo
+    uid: research-tempo
+    type: tempo
+    access: proxy
+    url: http://tempo:3200
+    jsonData:
+      tracesToLogsV2: { datasourceUid: research-loki, filterByTraceID: true }
+  - name: Loki
+    uid: research-loki
+    type: loki
+    access: proxy
+    url: http://loki:3100
+    jsonData:
+      derivedFields:
+        - { name: TraceID, matcherRegex: '"trace_id":"([a-f0-9]{32})"', datasourceUid: research-tempo, url: '$${__value.raw}' }
