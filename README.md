@@ -110,6 +110,8 @@ Coordinates are `io.github.mgoyal05:doc-rag-<module>:0.1.0`; Java imports use `d
 `examples/spring-boot/` is the runnable host, and `postman/` contains local provider simulations.
 These are prepared release coordinates. Until Maven Central publication is confirmed, build/install from source;
 the dependency snippets below do not imply remote availability.
+Maintainers publish from version tags after
+the [Maven Central setup and release checks](docs/OPERATIONS.md#maven-central-publishing).
 
 Plain Java consumer dependencies:
 

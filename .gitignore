@@ -3,6 +3,8 @@ research-data/
 research-demo/
 data/
 node_modules/
+__pycache__/
+*.pyc
 .env
 .env.*
 !.env.example
