@@ -1,6 +1,10 @@
 # Changelog
 
-## Unreleased — 0.1.1
+## Unreleased
+
+- Wait for the cancellation retry action to render before asserting it in the browser test, removing a timing race.
+
+## 0.1.1 — 2026-10-21
 
 - Add automatic Maven Central publishing from matching version tags after reusable CI, with signed bundle validation
   and consumer compilation against Central using a fresh Maven cache.
@@ -22,5 +26,5 @@
 - Consolidate installation, method flow and operations documentation; regenerate both architecture/flow illustrations.
 - Preserve historical schemas/records, PDF archives, stored job formats and ownership markers.
 
-Licensed under Apache 2.0. No Maven Central release has been published. Evaluation evidence is recorded
+Licensed under Apache 2.0. Release 0.1.1 is published to Maven Central. Evaluation and release evidence is recorded
 in [operations](docs/OPERATIONS.md#verification-status).

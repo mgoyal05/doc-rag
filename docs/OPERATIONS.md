@@ -482,7 +482,7 @@ coordinates remain unpublished, correct the source and cut a new version/tag rat
 tag. Once Central reports `PUBLISHED`, never rerun the publishing job for that version. If only consumer verification
 fails because of propagation, rerun `python scripts/release.py --verify-published` separately without republishing.
 This check also runs without publishing credentials. Released artifacts cannot be overwritten; publish fixes as a new
-version. Update the README publication status after the first successful release.
+version. Keep the README installation version aligned with the latest confirmed release.
 
 ### Verification status
 
@@ -521,3 +521,16 @@ key. All 21 artifact files passed signature, checksum, POM/JAR-content and modul
 were byte-identical. Core and Spring Boot smoke consumers compiled using the locally installed build artifacts.
 The temporary signing key was removed. No real publishing credentials, live Central upload or GitHub Actions release
 run were exercised by these local checks; Central-only consumer resolution is performed after publication.
+
+### Published release 0.1.1
+
+Release `0.1.1` is published to Maven Central under `io.github.mgoyal05`. The
+[successful release run](https://github.com/mgoyal05/doc-rag/actions/runs/39473985204) built tag `v0.1.1` at commit
+`61064d70b57f495f9e3576094d8494a095f242ca`. The parent POM and all five libraries are available from the
+[public Central repository](https://repo.maven.apache.org/maven2/io/github/mgoyal05/); the example remains excluded.
+
+The tagged release passed 19 Python checks, 59 Java tests with no failures or skips, the browser scenario and the
+dependency security scan. Its signed bundle passed all 21 artifact-file checks using the maintainer's signing key.
+Central accepted and published the deployment, and core and Spring Boot smoke consumers compiled using empty Maven
+settings and a fresh repository populated only from Central. All six published POM paths were independently checked
+afterward. The pre-existing `0.1.0` and `v0.1.0` Git tags were preserved.
