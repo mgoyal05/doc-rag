@@ -8,7 +8,7 @@ each answer. Use the plain Java client, add the Spring adapter, or embed the cha
 - Scoped financial tools, Java calculations, citation checks and a tool-free claim verifier.
 - Durable bounded jobs, cancellation, restart handling and optional Micrometer/OpenTelemetry integration.
 
-[Method flow](docs/MESSAGE-FLOW.md) · [Integration and operations](docs/OPERATIONS.md) ·
+[Architecture and module map](docs/ARCHITECTURE.md) · [Method flow](docs/MESSAGE-FLOW.md) · [Integration and operations](docs/OPERATIONS.md) ·
 [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Changelog](CHANGELOG.md)
 
 ## Quickstart: run the chatbot
@@ -264,7 +264,8 @@ The [method guide](docs/MESSAGE-FLOW.md) maps every step to implemented methods 
 ## Repository layout
 
 ```text
-pom.xml              portable Java core and standalone helpers
+pom.xml              Maven parent: versions, build rules and reactor modules
+core/                portable Java API, engine, PostgreSQL store and Ollama gateway
 docling/             optional official Docling Java adapter
 spring-boot/         HTTP/SSE, properties, shared templates and loader
 widget/              framework-independent Web Component
@@ -275,6 +276,8 @@ postman/             local synthetic dependency simulations
 docs/                method flow, operations and rendered diagrams
 .github/workflows/   standalone native PostgreSQL CI and dependency checks
 ```
+
+The [module map](docs/ARCHITECTURE.md) shows dependency direction, runtime ownership and where to make changes.
 
 ## Complete architecture
 
