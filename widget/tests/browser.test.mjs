@@ -126,7 +126,8 @@ test('chat widget: safe rendering, uploads, SSE, cancellation, continuity and ke
         });
         await page.waitForFunction(() => window.widget.jobId === 'job-2');
         await page.evaluate(() => window.widget.el('.cancel').click());
-        await page.waitForFunction(() => !window.widget.jobId);
+        // Cancelling clears the job before the asynchronous conversation refresh renders its retry action.
+        await page.waitForFunction(() => !window.widget.jobId && window.widget.el('.messages').textContent.includes('Retry this turn'));
         assert.match(await q('.messages'), /Retry this turn/);
         assert.deepEqual(await page.evaluate(() => Object.entries(localStorage)), [['fixture-conversation', 'conv-1']]);
         await page.reload();
