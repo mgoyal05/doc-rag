@@ -1,5 +1,10 @@
 # DocRAG
 
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.mgoyal05/doc-rag-spring-boot)](https://central.sonatype.com/artifact/io.github.mgoyal05/doc-rag-spring-boot)
+[![Build](https://github.com/mgoyal05/doc-rag/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mgoyal05/doc-rag/actions/workflows/ci.yml)
+[![Java 21+](https://img.shields.io/badge/Java-21%2B-blue)](pom.xml)
+[![Apache License 2.0](https://img.shields.io/badge/License-Apache%202.0-blue)](LICENSE)
+
 Conversational document research for Java 21. Upload reports, ask questions naturally and inspect the sources behind
 each answer. Use the plain Java client, add the Spring adapter, or embed the chat widget in an existing website.
 
@@ -10,6 +15,74 @@ each answer. Use the plain Java client, add the Spring adapter, or embed the cha
 
 [Architecture and module map](docs/ARCHITECTURE.md) · [Method flow](docs/MESSAGE-FLOW.md) · [Integration and operations](docs/OPERATIONS.md) ·
 [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Changelog](CHANGELOG.md)
+
+[Installation](#installation) · [Java usage](#example-1-plain-java-upload-and-question) ·
+[Runnable example](#quickstart-run-the-chatbot) · [Modules](#published-modules) · [Build from source](#installation-from-a-clean-checkout)
+
+## Installation
+
+DocRAG **0.1.1** is available from Maven Central. Use **JDK 21+** and **Maven 3.9+**; the Spring adapter targets
+**Spring Boot 4**. Published dependencies resolve through Maven's default Central repository without credentials or
+additional repository configuration. You do not need to clone or build DocRAG to use it.
+
+### Maven: Spring Boot integration
+
+Add this single dependency to your application's `pom.xml`:
+
+```xml
+<dependency>
+    <groupId>io.github.mgoyal05</groupId>
+    <artifactId>doc-rag-spring-boot</artifactId>
+    <version>0.1.1</version>
+</dependency>
+```
+
+It includes the core client, Docling adapter, browser widget and observability adapter as transitive dependencies.
+Then build your application:
+
+```sh
+mvn clean verify
+```
+
+To download the released library and its dependencies directly from the command line:
+
+```sh
+mvn dependency:get -Dartifact=io.github.mgoyal05:doc-rag-spring-boot:0.1.1
+```
+
+`dependency:get` downloads the artifacts; it does not edit your application's POM. Keep the dependency declaration above
+in your project.
+
+The Spring adapter requires explicit configuration: register `ResearchProperties` and `ResearchClient`, and import
+`ResearchWebController` and `ResearchChatViewAdvice`. The complete
+[Spring example](examples/spring-boot/src/main/java/example/DocRagApplication.java) shows the beans, authentication and
+host setup. [Example settings](examples/spring-boot/src/main/resources/application.properties) show the configuration
+keys. Runtime services are PostgreSQL with pgvector, Ollama and Docling Serve; see the [runnable example](#quickstart-run-the-chatbot).
+
+### Maven: plain Java
+
+For applications that supply their own extractor and need no Spring integration:
+
+```xml
+<dependency>
+    <groupId>io.github.mgoyal05</groupId>
+    <artifactId>doc-rag-core</artifactId>
+    <version>0.1.1</version>
+</dependency>
+```
+
+To use the supplied Docling extractor, add this alongside core:
+
+```xml
+<dependency>
+    <groupId>io.github.mgoyal05</groupId>
+    <artifactId>doc-rag-docling</artifactId>
+    <version>0.1.1</version>
+</dependency>
+```
+
+Java imports use `docrag.*`; the Maven group is `io.github.mgoyal05`. See the
+[plain Java upload and question example](#example-1-plain-java-upload-and-question) for client usage.
 
 ## Quickstart: run the chatbot
 
@@ -102,44 +175,20 @@ An absent extension returns no row; an absent profile returns null. Use your con
 
 ## Installation from a clean checkout
 
-Clone `https://github.com/mgoyal05/doc-rag.git` and run `./mvnw clean verify` (PowerShell: `./mvnw.cmd clean verify`).
-One reactor builds the parent, core, four optional adapters and runnable example. `scripts/build` runs `install` when
-local consumers need these artifacts. For core alone: `./mvnw -pl core -am clean install`; core requires no Spring.
-Coordinates are `io.github.mgoyal05:doc-rag-<module>:0.1.1`; Java imports use `docrag.*`.
-`core/` contains the portable API/engine; `docling/`, `widget/`, `observability/` and `spring-boot/` contain adapters.
-`examples/spring-boot/` is the runnable host, and `postman/` contains local provider simulations.
-Release `0.1.1` is available from [Maven Central](https://central.sonatype.com/artifact/io.github.mgoyal05/doc-rag-spring-boot/0.1.1).
-Use the dependency snippets below directly; Maven's default Central repository resolves these artifacts without
-additional repository configuration. Source builds remain available through the commands above.
-Maintainers publish from version tags after
-the [Maven Central setup and release checks](docs/OPERATIONS.md#maven-central-publishing).
-The [GitHub Packages mirror](https://github.com/mgoyal05/doc-rag/packages) is published after Central;
-Maven Central remains the default for consumers. See [mirror publishing](docs/OPERATIONS.md#github-packages-mirror).
+Build from source when contributing to DocRAG or running the bundled example:
 
-Plain Java consumer dependencies:
-
-```xml
-
-<dependencies>
-    <dependency>
-        <groupId>io.github.mgoyal05</groupId>
-        <artifactId>doc-rag-core</artifactId>
-        <version>0.1.1</version>
-    </dependency>
-    <dependency>
-        <groupId>io.github.mgoyal05</groupId>
-        <artifactId>doc-rag-docling</artifactId>
-        <version>0.1.1</version>
-    </dependency>
-</dependencies>
+```sh
+git clone https://github.com/mgoyal05/doc-rag.git
+cd doc-rag
+./mvnw clean verify
 ```
 
-Spring Boot 4 consumers use `io.github.mgoyal05:doc-rag-spring-boot:0.1.1`. This is an explicitly configured
-adapter: register the client/properties and import `ResearchWebController` and `ResearchChatViewAdvice`. The complete
-[Spring example](examples/spring-boot/src/main/java/example/DocRagApplication.java) shows every required bean,
-authentication
-and template. [Default example settings](examples/spring-boot/src/main/resources/application.properties) contain no
-credentials.
+On Windows, use `./mvnw.cmd clean verify`. The Maven Wrapper downloads pinned Maven 3.9.11 and verifies its SHA-256
+checksum. One reactor builds the parent, five libraries and runnable example. Database tests need an explicitly
+configured isolated PostgreSQL/pgvector instance; see [verification](#verification-and-limitations).
+
+To install a development build into your local Maven repository, use `./mvnw clean install` or `scripts/build`.
+For core and its parent only: `./mvnw -pl core -am clean install`.
 
 ## Example 1: plain Java upload and question
 
@@ -265,6 +314,28 @@ merging; retrieval adds adjacent same-section chunks. Lucene, BM25 and a custom 
 used.
 Missing periods, ambiguous metadata, partial extraction and failed validation produce explicit outcomes.
 The [method guide](docs/MESSAGE-FLOW.md) maps every step to implemented methods and SQL.
+
+## Published modules
+
+DocRAG is one project published as five library JARs and a shared parent POM. GitHub Packages displays a separate entry
+for each Maven artifact, so it shows **six packages**. Your application can use just the `doc-rag-spring-boot` dependency
+above; Maven resolves its module dependencies automatically.
+
+- `doc-rag-core`: portable Java client, research engine, PostgreSQL storage and Ollama gateway.
+- `doc-rag-docling`: Docling Serve extraction and chunking adapter.
+- `doc-rag-widget`: browser chat component and static resources.
+- `doc-rag-observability`: Micrometer metrics and OpenTelemetry tracing adapter.
+- `doc-rag-spring-boot`: Spring Boot integration that includes all four libraries above.
+- `doc-rag-parent`: shared build and dependency metadata, packaged as a POM rather than a runtime JAR.
+
+The runnable `examples/spring-boot` application is not published as a library. All published artifacts use group
+`io.github.mgoyal05` and version `0.1.1`. Browse them on
+[Maven Central](https://central.sonatype.com/namespace/io.github.mgoyal05) or
+[GitHub Packages](https://github.com/mgoyal05/doc-rag/packages).
+
+Maintainers publish from version tags after the [release checks](docs/OPERATIONS.md#maven-central-publishing).
+The [GitHub mirror](docs/OPERATIONS.md#github-packages-mirror) follows a successful Central release. Use Maven Central
+for normal dependency resolution.
 
 ## Repository layout
 
