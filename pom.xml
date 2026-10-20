@@ -31,7 +31,7 @@
         <connection>scm:git:https://github.com/mgoyal05/doc-rag.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/mgoyal05/doc-rag.git</developerConnection>
         <url>https://github.com/mgoyal05/doc-rag</url>
-        <tag>v0.1.0</tag>
+        <tag>v${project.version}</tag>
     </scm>
     <issueManagement>
         <system>GitHub</system>
@@ -55,6 +55,9 @@
         <maven.source.skip>false</maven.source.skip>
         <maven.javadoc.skip>false</maven.javadoc.skip>
         <docrag.skipPublishing>false</docrag.skipPublishing>
+        <docrag.central.skipUpload>true</docrag.central.skipUpload>
+        <docrag.central.autoPublish>false</docrag.central.autoPublish>
+        <docrag.central.waitUntil>validated</docrag.central.waitUntil>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -128,6 +131,39 @@
         </resources>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>3.2.8</version>
+                    <executions>
+                        <execution>
+                            <id>sign-artifacts</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <bestPractices>true</bestPractices>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.sonatype.central</groupId>
+                    <artifactId>central-publishing-maven-plugin</artifactId>
+                    <version>0.12.0</version>
+                    <configuration>
+                        <publishingServerId>central</publishingServerId>
+                        <skipUpload>${docrag.central.skipUpload}</skipUpload>
+                        <autoPublish>${docrag.central.autoPublish}</autoPublish>
+                        <waitUntil>${docrag.central.waitUntil}</waitUntil>
+                        <skipPublishing>${docrag.skipPublishing}</skipPublishing>
+                        <excludeArtifacts>
+                            <excludeArtifact>doc-rag-example</excludeArtifact>
+                        </excludeArtifacts>
+                        <deploymentName>DocRAG-${project.version}</deploymentName>
+                    </configuration>
+                </plugin>
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
@@ -297,7 +333,7 @@
             </plugin>
         </plugins>
     </build>
-    <!-- Explicit, signed, LOCAL bundle only. No upload or auto-publication. -->
+    <!-- Signing/publishing are opt-in; ordinary builds require no credentials. -->
     <profiles>
         <profile>
             <id>release-bundle</id>
@@ -306,34 +342,33 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.2.8</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <bestPractices>true</bestPractices>
-                        </configuration>
                     </plugin>
                     <plugin>
                         <groupId>org.sonatype.central</groupId>
                         <artifactId>central-publishing-maven-plugin</artifactId>
-                        <version>0.12.0</version>
                         <extensions>true</extensions>
-                        <configuration>
-                            <skipUpload>true</skipUpload>
-                            <autoPublish>false</autoPublish>
-                            <skipPublishing>${docrag.skipPublishing}</skipPublishing>
-                            <excludeArtifacts>
-                                <excludeArtifact>doc-rag-example</excludeArtifact>
-                            </excludeArtifacts>
-                            <deploymentName>DocRAG-${project.version}</deploymentName>
-                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>release-central</id>
+            <properties>
+                <docrag.central.skipUpload>false</docrag.central.skipUpload>
+                <docrag.central.autoPublish>true</docrag.central.autoPublish>
+                <docrag.central.waitUntil>published</docrag.central.waitUntil>
+                <gpg.signer>bc</gpg.signer>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <extensions>true</extensions>
                     </plugin>
                 </plugins>
             </build>

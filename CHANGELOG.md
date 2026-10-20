@@ -2,6 +2,8 @@
 
 ## Unreleased — 0.1.0
 
+- Add automatic Maven Central publishing from matching version tags after reusable CI, with signed bundle validation
+  and consumer compilation against Central using a fresh Maven cache.
 - Standardize `docrag.*` packages and `io.github.mgoyal05:doc-rag-*` artifacts in one Maven reactor with a pinned
   wrapper.
 - Restore damaged sources, reject empty release inputs and prepare source/API artifacts plus an opt-in signed local

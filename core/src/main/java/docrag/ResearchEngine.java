@@ -109,7 +109,8 @@ public final class ResearchEngine implements AutoCloseable {
     /**
      * Explicit metadata path for trusted importers/Telegram. Chat uploads infer their own metadata.
      */
-    public synchronized Research.Ingestion ingest(Research.Document document) throws Exception {
+    public synchronized Research.Ingestion ingest(Research.Document document)
+            throws Exception {
         return ingest(document, document.id().startsWith("telegram:"));
     }
 
@@ -166,11 +167,15 @@ public final class ResearchEngine implements AutoCloseable {
         try {
             var evidence = search(scope, question);
             for (var target : scope.targets())
-                if (evidence.stream().noneMatch(e -> e.company().equals(target.company()) && e.period().equals(target.period()))) {
+                if (evidence.stream().noneMatch(
+                        e -> e.company().equals(target.company())
+                                && e.period().equals(target.period()))) {
                     success = true;
-                    return insufficient("No uploaded evidence for " + target.company() + " in " + target.period());
+                    return insufficient("No uploaded evidence for "
+                            + target.company() + " in " + target.period());
                 }
-            var answer = generate(question + "\nValidated scope: " + json.writeValueAsString(scope), balanced(evidence, scope), tools.stream().map(t -> scoped(t, scope)).toList());
+            var answer = generate(question + "\nValidated scope: " + json.writeValueAsString(scope),
+                    balanced(evidence, scope), tools.stream().map(t -> scoped(t, scope)).toList());
             success = true;
             return answer;
         } finally {

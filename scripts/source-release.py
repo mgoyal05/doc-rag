@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """Validate distributable sources; optionally create a reproducible, checksummed ZIP. Python 3.10+."""
 import argparse
+from datetime import datetime, timezone
 import hashlib
 import json
+import os
 import re
 from pathlib import Path
+import subprocess
 import xml.etree.ElementTree as ET
 import zipfile
+
+from release import project_version
 
 ROOT = Path(__file__).resolve().parents[1]
 EXCLUDED = {'.git', '.idea', 'target', 'node_modules', 'data', 'research-data', 'research-demo', 'dist', '__pycache__'}
@@ -15,6 +20,7 @@ REQUIRED = ['LICENSE', 'NOTICE', '.env.example', '.gitattributes', 'mvnw', 'mvnw
             'core/src/main/java/docrag/SecureDownloads.java',
             'spring-boot/src/main/java/docrag/spring/ResearchProperties.java',
             'scripts/build.ps1', 'scripts/run-example.ps1', 'docs/mermaid-config.json',
+            'scripts/release.py', 'scripts/test_release.py', '.github/workflows/ci.yml', '.github/workflows/release.yml',
             'examples/spring-boot/src/main/resources/templates/index.html']
 
 
@@ -42,7 +48,7 @@ def validate(files):
             assert package and p.parent.as_posix().endswith(package[1].replace('.', '/')), f'Package/path mismatch: {p}'
         if p.name == 'pom.xml':
             text = p.read_text()
-            assert 'dev.research' not in text and '0.1.0-SNAPSHOT' not in text and 'document-research' not in text, p
+            assert 'dev.research' not in text and 'document-research' not in text, p
         if p.suffix == '.md':
             text = p.read_text(encoding='utf-8')
             for target in re.findall(r'!?\[[^\]]*\]\(([^)]+)\)', text):
@@ -69,12 +75,20 @@ def main():
         output = args.output.resolve()
         assert not output.exists(), 'Refusing to overwrite an existing archive; use a new output path'
         output.parent.mkdir(parents=True, exist_ok=True)
-        prefix = 'doc-rag-0.1.0/'
+        prefix = f'doc-rag-{project_version(ROOT)}/'
+        epoch = os.environ.get('SOURCE_DATE_EPOCH')
+        if epoch is None:
+            try:
+                epoch = subprocess.check_output(['git', 'log', '-1', '--format=%ct'], cwd=ROOT,
+                                                stderr=subprocess.DEVNULL, text=True).strip()
+            except (OSError, subprocess.CalledProcessError):
+                epoch = '315532800'  # Reproducible ZIP epoch for a source checkout without Git metadata.
+        timestamp = datetime.fromtimestamp(max(315532800, int(epoch)), timezone.utc).timetuple()[:6]
         digests = {}
         with zipfile.ZipFile(output, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
             for p in files:
                 name = prefix + p.relative_to(ROOT).as_posix()
-                info = zipfile.ZipInfo(name, (2026, 10, 20, 0, 0, 0))
+                info = zipfile.ZipInfo(name, timestamp)
                 info.compress_type = zipfile.ZIP_DEFLATED
                 info.external_attr = (0o100755 if p.name == 'mvnw' or p.suffix == '.sh' else 0o100644) << 16
                 content = p.read_bytes()

@@ -379,6 +379,8 @@ python scripts/source-release.py --output dist/doc-rag-0.1.0.zip
 The exporter excludes build outputs, credentials and runtime data; rejects missing/empty release inputs and broken
 local links; verifies ZIP CRC and every content hash; and writes `doc-rag-0.1.0.zip.sha256`. It refuses to overwrite an
 existing archive. An archive checksum verifies transport integrity, not model quality or release authorization.
+The archive prefix follows the parent POM version. ZIP timestamps use `SOURCE_DATE_EPOCH` when set, otherwise the
+release commit timestamp (or the ZIP epoch when Git metadata is unavailable).
 
 Windows uses `./mvnw.cmd`. Wrapper 3.3.4 downloads checksum-pinned Maven 3.9.11. Use `scripts/build` for an install
 and `scripts/run-example` to launch the stable `examples/spring-boot/target/doc-rag-example.jar`.
@@ -403,6 +405,84 @@ Never put signing keys, passphrases or Portal tokens in this repository. Follow
 [Central requirements](https://central.sonatype.org/publish/requirements/) and
 [namespace verification](https://central.sonatype.org/register/namespace/). A prepared POM does not establish ownership,
 signature validity or acceptance by Central. Enable/test the private security-reporting channel separately.
+
+### Maven Central publishing
+
+The namespace is `io.github.mgoyal05`. The release workflow publishes `doc-rag-parent` and the five library artifacts:
+`doc-rag-core`, `doc-rag-docling`, `doc-rag-widget`, `doc-rag-observability`, and `doc-rag-spring-boot`.
+The example application is built and tested but excluded from deployment. Ordinary builds still require no credentials.
+
+One-time setup in GitHub repository Settings > Secrets and variables > Actions:
+
+- Secret `CENTRAL_TOKEN_USERNAME`: the Sonatype Portal token username.
+- Secret `CENTRAL_TOKEN_PASSWORD`: the Sonatype Portal token password.
+- Secret `MAVEN_GPG_KEY`: the complete ASCII-armored private signing key, including BEGIN/END lines.
+- Secret `MAVEN_GPG_PASSPHRASE`: the signing-key passphrase.
+- Variable `MAVEN_GPG_KEY_FINGERPRINT`: the full 40-character RSA primary-key fingerprint, without spaces.
+
+Use the verified namespace in [Central Portal](https://central.sonatype.com/), generate a
+[publishing token](https://central.sonatype.org/publish/generate-portal-token/), and distribute the public signing key
+through `hkps://keyserver.ubuntu.com` following the
+[GPG instructions](https://central.sonatype.org/publish/requirements/gpg/). The workflow retrieves this public key
+before signing and verifies every bundle signature against the configured fingerprint. The BC signer reads the private
+key and passphrase only from environment variables. `actions/setup-java` generates Maven settings with server ID
+`central` and environment references for the token; no settings or private keys belong in this repository.
+
+For Windows Gpg4win, use `gpg` on PATH or the full executable path. List the keys with
+`gpg --list-secret-keys --keyid-format long --fingerprint`; export the selected key to a secure location outside the
+checkout using `gpg --armor --output <private-key-file> --export-secret-keys <fingerprint>`. Back up the key and
+revocation certificate securely. Paste the exported key into the GitHub secret, never into an issue or committed file.
+
+Before a release, commit and merge the intended changes into `main`, including any locally modified application code
+that should ship. Update the parent version, all six child parent versions and release notes together. Do not reuse a
+published version. Run these commands from the intended release commit (PowerShell uses `./mvnw.cmd`):
+
+```sh
+python scripts/source-release.py
+python -m unittest discover -s scripts -p 'test_release.py' -v
+python scripts/release.py --tag v0.1.0 --check-central
+./mvnw clean verify
+git tag -a v0.1.0 -m "DocRAG 0.1.0"
+git push origin v0.1.0
+```
+
+Replace `0.1.0` with the new parent version for subsequent releases. Pushing the tag starts
+`.github/workflows/release.yml`. Preflight requires a stable `vMAJOR.MINOR.PATCH` tag matching every module, a commit
+reachable from `origin/main`, and six coordinates that are absent from Central. Network errors fail preflight; they
+are not interpreted as missing coordinates. Then the same tagged commit passes reusable CI: native PostgreSQL/pgvector,
+Postman provider simulations, Java tests, browser checks and the dependency security scan. These checks use no release
+secrets. Publish jobs are serialized and an active release is never cancelled by another tag.
+
+After CI passes, the publish job builds a signed local bundle with upload disabled and checks the exact artifact set,
+POM metadata, sources/Javadoc contents, runtime license resources, signatures and checksums. It then reruns deploy on
+the same checkout using `release-central`, which uploads, automatically publishes and waits for `PUBLISHED`. Tests are
+skipped only in these packaging steps because the required CI job has already passed on this commit.
+
+The final check waits for Central availability and compiles minimal core and Spring Boot consumers with empty Maven
+settings and a fresh local repository. The Spring Boot consumer resolves all five libraries and their parent from
+Central. Check the Actions run and Central Portal deployment status; signed bundles and available reports are retained
+as run artifacts. Publication is confirmed only after these checks succeed; until then, README coordinates remain
+marked as prepared.
+
+For a local signed bundle check, using your GnuPG keyring:
+
+```sh
+./mvnw -Prelease-bundle clean deploy
+python scripts/release.py --bundle target/central-publishing/central-bundle.zip --fingerprint <fingerprint>
+```
+
+On Windows, if GnuPG is not on PATH, pass `"-Dgpg.executable=<path-to-gpg.exe>"` to Maven and
+`--gpg "<path-to-gpg.exe>"` to the bundle checker. For a CI-style BC signer dry
+run, set the `MAVEN_GPG_*` environment variables securely and use
+`./mvnw -Prelease-central -Ddocrag.central.skipUpload=true clean deploy`. Do not activate both release profiles
+together.
+
+If upload/validation fails, inspect the Actions logs and the deployment in Central Portal before retrying. If the
+coordinates remain unpublished, correct the source and cut a new version/tag rather than moving an existing public
+tag. Once Central reports `PUBLISHED`, never rerun the publishing job for that version. If only consumer verification
+fails because of propagation, rerun `python scripts/release.py --verify-published` separately without republishing.
+This check also runs without publishing credentials. Released artifacts cannot be overwritten; publish fixes as a new
+version. Update the README publication status after the first successful release.
 
 ### Verification status
 
@@ -433,3 +513,11 @@ reviewed-corpus accuracy, overlapping workloads, monitoring services, full host 
 executed vulnerability scan remain unverified. The signed profile's effective configuration was checked without
 signing, uploading or publishing; namespace ownership, operator signatures, Central acceptance, private reporting and
 the public release tag still require explicit maintainer verification.
+
+Publishing automation was additionally checked on 20 October 2026: 19 Python release-guard tests passed; the complete
+Maven reactor passed `clean verify` with no failures (native database/provider integration tests were not configured
+locally); actionlint accepted both workflows; and the CI-style BC signer built a local bundle using a temporary RSA
+key. All 21 artifact files passed signature, checksum, POM/JAR-content and module-exclusion checks. Two source exports
+were byte-identical. Core and Spring Boot smoke consumers compiled using the locally installed build artifacts.
+The temporary signing key was removed. No real publishing credentials, live Central upload or GitHub Actions release
+run were exercised by these local checks; Central-only consumer resolution is performed after publication.

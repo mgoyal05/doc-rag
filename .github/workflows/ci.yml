@@ -1,5 +1,10 @@
 name: DocRAG checks
-on: [ push, pull_request, workflow_dispatch ]
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
 permissions:
   contents: read
 jobs:
@@ -21,6 +26,8 @@ jobs:
       RESEARCH_TEST_DB_PASSWORD: research-test-only
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
       - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
         with:
           distribution: temurin
@@ -31,6 +38,10 @@ jobs:
         env:
           PGPASSWORD: research-test-only
         run: psql -h 127.0.0.1 -U postgres -d research_test -v ON_ERROR_STOP=1 -c 'CREATE EXTENSION vector'
+      - name: Release tooling checks
+        run: |
+          python3 -m unittest discover -s scripts -p 'test_release.py' -v
+          python3 scripts/release.py
       - name: Build and test all libraries and the standalone application
         env:
           RESEARCH_SIMULATION_URL: http://127.0.0.1:55492
