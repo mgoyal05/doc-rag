@@ -108,7 +108,7 @@ local consumers need these artifacts. For core alone: `./mvnw -pl core -am clean
 Coordinates are `io.github.mgoyal05:doc-rag-<module>:0.1.1`; Java imports use `docrag.*`.
 `core/` contains the portable API/engine; `docling/`, `widget/`, `observability/` and `spring-boot/` contain adapters.
 `examples/spring-boot/` is the runnable host, and `postman/` contains local provider simulations.
-Release `0.1.1` is available from [Maven Central](https://repo.maven.apache.org/maven2/io/github/mgoyal05/).
+Release `0.1.1` is available from [Maven Central](https://central.sonatype.com/artifact/io.github.mgoyal05/doc-rag-spring-boot/0.1.1).
 Use the dependency snippets below directly; Maven's default Central repository resolves these artifacts without
 additional repository configuration. Source builds remain available through the commands above.
 Maintainers publish from version tags after

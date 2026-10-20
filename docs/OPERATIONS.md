@@ -527,7 +527,7 @@ run were exercised by these local checks; Central-only consumer resolution is pe
 Release `0.1.1` is published to Maven Central under `io.github.mgoyal05`. The
 [successful release run](https://github.com/mgoyal05/doc-rag/actions/runs/39473985204) built tag `v0.1.1` at commit
 `61064d70b57f495f9e3576094d8494a095f242ca`. The parent POM and all five libraries are available from the
-[public Central repository](https://repo.maven.apache.org/maven2/io/github/mgoyal05/); the example remains excluded.
+[Maven Central namespace](https://central.sonatype.com/namespace/io.github.mgoyal05); the example remains excluded.
 
 The tagged release passed 19 Python checks, 59 Java tests with no failures or skips, the browser scenario and the
 dependency security scan. Its signed bundle passed all 21 artifact-file checks using the maintainer's signing key.
