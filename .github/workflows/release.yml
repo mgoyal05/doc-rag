@@ -1,0 +1,103 @@
+name: Publish to Maven Central
+
+on:
+  push:
+    tags: [ 'v*' ]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: maven-central-release
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Require a release commit on main and unpublished matching coordinates
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          git merge-base --is-ancestor HEAD origin/main
+          python3 scripts/release.py --tag "$RELEASE_TAG" --check-central
+
+  checks:
+    needs: preflight
+    uses: ./.github/workflows/ci.yml
+
+  publish:
+    needs: checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: '**/pom.xml'
+          server-id: central
+          server-username: CENTRAL_TOKEN_USERNAME
+          server-password: CENTRAL_TOKEN_PASSWORD
+      - name: Check credentials and retrieve the public signing key
+        env:
+          CENTRAL_TOKEN_USERNAME: ${{ secrets.CENTRAL_TOKEN_USERNAME }}
+          CENTRAL_TOKEN_PASSWORD: ${{ secrets.CENTRAL_TOKEN_PASSWORD }}
+          MAVEN_GPG_KEY: ${{ secrets.MAVEN_GPG_KEY }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          MAVEN_GPG_KEY_FINGERPRINT: ${{ vars.MAVEN_GPG_KEY_FINGERPRINT }}
+          GNUPGHOME: ${{ runner.temp }}/docrag-gnupg
+        run: |
+          set -euo pipefail
+          for credential in CENTRAL_TOKEN_USERNAME CENTRAL_TOKEN_PASSWORD MAVEN_GPG_KEY MAVEN_GPG_PASSPHRASE MAVEN_GPG_KEY_FINGERPRINT; do
+            test -n "${!credential}" || { echo "Missing Actions secret/variable: $credential"; exit 1; }
+          done
+          [[ "$MAVEN_GPG_KEY_FINGERPRINT" =~ ^[[:xdigit:]]{40}$ ]] || { echo 'Expected the full 40-character RSA primary-key fingerprint'; exit 1; }
+          install -d -m 700 "$GNUPGHOME"
+          gpg --batch --keyserver hkps://keyserver.ubuntu.com --recv-keys "$MAVEN_GPG_KEY_FINGERPRINT"
+      - name: Build and validate the signed local bundle without uploading
+        env:
+          MAVEN_GPG_KEY: ${{ secrets.MAVEN_GPG_KEY }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          MAVEN_GPG_KEY_FINGERPRINT: ${{ vars.MAVEN_GPG_KEY_FINGERPRINT }}
+          GNUPGHOME: ${{ runner.temp }}/docrag-gnupg
+        run: |
+          sh ./mvnw -B --no-transfer-progress -Prelease-central -DskipTests -Ddocrag.central.skipUpload=true clean deploy
+          python3 scripts/release.py --bundle target/central-publishing/central-bundle.zip --fingerprint "$MAVEN_GPG_KEY_FINGERPRINT"
+      - name: Publish and wait for Maven Central
+        env:
+          CENTRAL_TOKEN_USERNAME: ${{ secrets.CENTRAL_TOKEN_USERNAME }}
+          CENTRAL_TOKEN_PASSWORD: ${{ secrets.CENTRAL_TOKEN_PASSWORD }}
+          MAVEN_GPG_KEY: ${{ secrets.MAVEN_GPG_KEY }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          MAVEN_GPG_KEY_FINGERPRINT: ${{ vars.MAVEN_GPG_KEY_FINGERPRINT }}
+          GNUPGHOME: ${{ runner.temp }}/docrag-gnupg
+        run: sh ./mvnw -B --no-transfer-progress -Prelease-central -DskipTests deploy
+      - name: Resolve and compile consumers from Central using a fresh Maven cache
+        run: python3 scripts/release.py --verify-published
+      - name: Retain signed bundle and build reports
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: doc-rag-central-${{ github.ref_name }}
+          path: |
+            target/central-publishing/*.zip
+            **/surefire-reports/*.xml
+          if-no-files-found: warn
+      - name: Remove temporary public keyring
+        if: always()
+        env:
+          GNUPGHOME: ${{ runner.temp }}/docrag-gnupg
+        run: |
+          gpgconf --kill all || true
+          rm -rf -- "$GNUPGHOME"
